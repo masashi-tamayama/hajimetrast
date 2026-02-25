@@ -689,6 +689,9 @@ body {
 .omakase-block-h2-text-lg {
     font-size: 2.25rem;
 }
+.omakase-block-h2-orange {
+    color: #e85c00;
+}
 @media (min-width: 768px) {
     .omakase-block-h2-text { font-size: 1.75rem; }
     .omakase-block-h2-text-lg { font-size: 2.25rem; }
