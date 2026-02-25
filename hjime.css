@@ -685,9 +685,18 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-blue);
+    overflow: visible;
+    max-height: none;
+    white-space: normal;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 1;
 }
 .omakase-block-h2-text-lg {
-    font-size: 2.25rem;
+    font-size: 1.75rem;  /* 「空家の整理は…」用にやや大きく */
+}
+.section-omakase-block .container {
+    overflow: visible;
 }
 .omakase-block-h2-orange {
     color: #e85c00;
@@ -716,10 +725,25 @@ body {
 }
 @media (min-width: 768px) {
     .omakase-block-h2-text { font-size: 1.75rem; }
-    .omakase-block-h2-text-lg { font-size: 2.25rem; }
+    .omakase-block-h2-text-lg { font-size: 2rem; }  /* 「空家の整理は…」PCでやや大きく */
 }
 @media (max-width: 767px) {
-    .omakase-block-h2-text-lg { font-size: 2rem; }
+    .omakase-block-h2-text-lg { font-size: 1.625rem; }  /* 「空家の整理は…」スマホでやや大きく */
+}
+/* 選択肢①②③の下のリード文：上の余白を狭く・1行表示 */
+.section-omakase-block .omakase-block-list {
+    margin-bottom: 0.5rem;
+}
+.omakase-block-lead-mt {
+    margin-top: -80px;
+}
+.omakase-block-lead {
+    white-space: nowrap;
+}
+@media (max-width: 767px) {
+    .omakase-block-lead {
+        white-space: normal;
+    }
 }
 /* 「他社で買取不可…」CTAブロック：面倒なお手続きは一切不要です。と同じ背景 */
 .omakase-block-cta-wrap {
@@ -732,10 +756,32 @@ body {
     padding: 0;
     margin: 0;
 }
+/* PC：グリッド行を上揃えにして、画像を番号「1」の高さに合わせる */
+@media (min-width: 768px) {
+    .omakase-block-list {
+        align-items: start;
+    }
+}
+.omakase-block-item {
+    padding-top: 0;
+    margin-top: 0;
+}
+.omakase-block-item-img img {
+    display: block;
+    margin-top: 0;
+    vertical-align: top;
+}
+/* 1の画像を120px上にずらす */
+@media (min-width: 768px) {
+    .omakase-block-item-img-up {
+        margin-top: -120px;
+    }
+}
 .omakase-block-num {
     display: block;
     max-width: 48px;
     height: auto;
+    margin-top: 0;
 }
 .kanou-list {
     list-style: none;
