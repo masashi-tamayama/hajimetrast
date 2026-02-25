@@ -83,7 +83,6 @@ body {
     object-fit: cover;
     object-position: center center;
     display: block;
-    vertical-align: top;
 }
 @media (max-width: 767px) {
     .section-mv2 .container {
@@ -154,6 +153,9 @@ body {
         max-width: 100%;
         height: auto;
         max-height: 56px;
+    }
+    .p-header-logo.p-header-logo-text {
+        font-size: 1.5rem;
     }
 }
 
@@ -786,7 +788,6 @@ body {
 .omakase-block-item-img img {
     display: block;
     margin-top: 0;
-    vertical-align: top;
 }
 /* 1の画像を120px上にずらす */
 @media (min-width: 768px) {
@@ -1239,6 +1240,88 @@ body {
     }
     .p-faq-title + p {
         font-size: 0.875rem;
+    }
+}
+
+/* ========== 会社情報カード（フッター直上） ========== */
+.p-company-info {
+    background-color: #f5f7f9;
+    padding: 40px 0 48px;
+}
+.p-company-info-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    max-width: 720px;
+    margin: 0 auto;
+}
+.p-company-info-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.p-company-info-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px 24px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.p-company-info-row:last-child {
+    border-bottom: none;
+}
+.p-company-info-row dt {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: bold;
+    color: #666;
+}
+.p-company-info-row dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: #333;
+    line-height: 1.6;
+}
+.p-company-info-row dd a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+.p-company-info-row dd a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 767px) {
+    .p-company-info {
+        padding: 24px 0 32px;
+    }
+    .p-company-info-card {
+        padding: 20px 16px 24px;
+    }
+    .p-company-info-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 12px 0;
+    }
+    .p-company-info-row dt {
+        font-size: 0.75rem;
+    }
+    .p-company-info-row dd {
+        font-size: 0.875rem;
+    }
+}
+
+/* フッター：会社名テキストロゴ */
+.p-footer-logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    letter-spacing: 0.02em;
+}
+@media (max-width: 767px) {
+    .p-footer-logo-text {
+        font-size: 1.25rem;
     }
 }
 
