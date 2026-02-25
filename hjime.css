@@ -280,6 +280,23 @@ body {
 .cva-section-light-bg {
     background-color: var(--light-blue-bg);
 }
+/* 最終CTA：白背景・文字サイズ小さめ */
+.cva-section-final {
+    background-color: #fff;
+}
+.cva-section-final.cva-section-light .cva-heading {
+    font-size: 1.5rem;
+}
+.cva-section-final.cva-section-light .cva-sub,
+.cva-section-final.cva-section-light .cva-sub-lg {
+    font-size: 1.2rem !important;
+    line-height: 1.8;
+}
+@media (min-width: 768px) {
+    .cva-section-final.cva-section-light .cva-heading { font-size: 1.75rem; }
+    .cva-section-final.cva-section-light .cva-sub,
+    .cva-section-final.cva-section-light .cva-sub-lg { font-size: 1.2rem !important; }
+}
 .cva-section-light .cva-sub {
     font-size: 1rem;
     line-height: 1.8;
