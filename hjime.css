@@ -276,6 +276,10 @@ body {
 }
 
 /* 中間CTA①：サブテキストを共感ブロックのリード文と同じサイズに、オレンジボタンは1行・大きめに */
+/* 中間CTA②のみ：面倒なお手続きは一切不要です。と同じ薄い青背景 */
+.cva-section-light-bg {
+    background-color: var(--light-blue-bg);
+}
 .cva-section-light .cva-sub {
     font-size: 1rem;
     line-height: 1.8;
@@ -664,6 +668,59 @@ body {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* ワケガイにおまかせください！＋下記のような不動産でも買取可能です（モデルサイトブロック） */
+.section-omakase-block {
+    background: #fff;
+}
+.section-omakase-block .omakase-block-h2 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.omakase-block-h2-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+.omakase-block-h2-text-lg {
+    font-size: 2.25rem;
+}
+@media (min-width: 768px) {
+    .omakase-block-h2-text { font-size: 1.75rem; }
+    .omakase-block-h2-text-lg { font-size: 2.25rem; }
+}
+@media (max-width: 767px) {
+    .omakase-block-h2-text-lg { font-size: 2rem; }
+}
+/* 「他社で買取不可…」CTAブロック：面倒なお手続きは一切不要です。と同じ背景 */
+.omakase-block-cta-wrap {
+    background-color: var(--light-blue-bg);
+    padding: 2rem 20px;
+    margin: 0 -20px;
+}
+.omakase-block-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.omakase-block-num {
+    display: block;
+    max-width: 48px;
+    height: auto;
+}
+.kanou-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.kanou-img {
+    display: block;
+    height: auto;
+    object-fit: contain;
 }
 
 /* 買取までの流れセクション（モデル p-step-list, p-flow-list と同じ） */
