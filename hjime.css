@@ -262,6 +262,26 @@ body {
     color: var(--primary-blue);
 }
 
+/* 中間CTA①：サブテキストを共感ブロックのリード文と同じサイズに、オレンジボタンは1行・大きめに */
+.cva-section-light .cva-sub {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+@media (min-width: 768px) {
+    .cva-section-light .cva-sub { font-size: 1.0625rem; }
+}
+.cva-section-light .cva-btn-orange {
+    min-width: 420px;
+    width: auto;
+    padding: 18px 28px;
+}
+.cva-section-light .cva-btn-orange .cva-btn-text {
+    flex: 0 0 auto;
+}
+.cva-section-light .cva-btn-orange .cva-btn-main {
+    white-space: nowrap;
+}
+
 /* ========== ② 共感・状況整理ブロック（はじめトラスト用） ========== */
 .section-worry {
     background-color: #f9fafb;
@@ -312,6 +332,68 @@ body {
 }
 @media (min-width: 768px) {
     .section-worry-lead { font-size: 1.0625rem; }
+}
+
+/* ========== ⑥ はじめトラストが空家で選ばれる理由（空家特化） ========== */
+.section-why-hajime .section-why-h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+}
+@media (min-width: 768px) {
+    .section-why-hajime .section-why-h2 { font-size: 1.75rem; }
+}
+.section-why-hajime .section-why-lead {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-black);
+    margin: 0 0 2rem;
+}
+.section-why-hajime .section-why-closing {
+    margin-top: 0;
+}
+
+/* はじめトラストが空家で選ばれる理由：画像＋キャプションの3カラム（モデルサイト風） */
+.section-why-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+@media (min-width: 768px) {
+    .section-why-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+.section-why-item {
+    list-style: none;
+    margin: 0;
+}
+.section-why-img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    background: #f3f4f6;
+    aspect-ratio: 4 / 3;
+}
+.section-why-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.section-why-caption {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    text-align: center;
+    line-height: 1.4;
+}
+@media (min-width: 768px) {
+    .section-why-caption { font-size: 1.0625rem; }
 }
 
 /* 空き家を放置すると... セクション（参照ソース u-bg-akiya と同じ） */
