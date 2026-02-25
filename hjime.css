@@ -1,20 +1,28 @@
 /* hjime.css - はじめトラストLP スタイル */
 
+/* 全体レスポンシブ基盤 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 :root {
     --primary-blue: #0365b2;
     --light-blue-bg: #f0f7ff;
     --accent-red: #e60012;
     --text-black: #333;
 }
-
+html {
+    overflow-x: hidden;
+}
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     color: var(--text-black);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -64,25 +72,45 @@ body {
     display: block;
     margin: 0 auto;
 }
+@media (max-width: 767px) {
+    .section-mv2 .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
 
 /* ヘッダー：モデルサイトに合わせたサイズ・上線 */
 .p-header {
     border-top: 1px solid #e0ebe0;
     border-bottom: 1px solid #e5e7eb;
 }
+.p-header .container {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
 .p-header-desc {
     font-size: 14px;
     color: #333;
     font-weight: 600;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .p-header-left {
     margin-left: 200px;
+    min-width: 0;
 }
 
 .p-header-right {
     margin-right: 200px;
+    min-width: 0;
+}
+
+/* 縮小時は固定マージンを外してレイアウトを維持・文字が切れないように */
+@media (max-width: 1199px) {
+    .p-header-left { margin-left: 0; }
+    .p-header-right { margin-right: 0; }
 }
 
 .p-header-logo {
@@ -94,10 +122,35 @@ body {
     object-position: left;
 }
 
+@media (max-width: 767px) {
+    .p-header .container {
+        align-items: stretch;
+    }
+    .p-header-left {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .p-header-right {
+        width: 100%;
+    }
+    .p-header-desc {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .p-header-logo {
+        max-width: 100%;
+        height: auto;
+        max-height: 56px;
+    }
+}
+
 .p-header-tel-label {
     font-size: 16px;
     font-weight: bold;
     color: #333;
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
 }
 
 .p-header-tel-num {
@@ -105,10 +158,16 @@ body {
     font-weight: bold;
     color: #e60012;
     line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 @media (min-width: 768px) {
     .p-header-tel-num { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+    .p-header-tel-num { font-size: 1.75rem; }
 }
 
 /* CVAセクション：見出し・サブ見出し */
@@ -201,6 +260,58 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: var(--primary-blue);
+}
+
+/* ========== ② 共感・状況整理ブロック（はじめトラスト用） ========== */
+.section-worry {
+    background-color: #f9fafb;
+}
+.p-worry-list {
+    list-style: none;
+    padding: 1.25rem 1.5rem;
+    margin: 0 auto 1.5rem;
+    max-width: 50%;
+    background: #fff;
+    border: 1px solid #c5d9ed;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.p-worry-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-black);
+}
+.p-worry-list li:last-child {
+    margin-bottom: 0;
+}
+@media (max-width: 767px) {
+    .p-worry-list { max-width: 100%; }
+}
+/* 悩みリストは空白の四角（□）を採用 */
+.p-worry-list li::before {
+    content: "\25A1";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    font-size: 1em;
+    line-height: 1;
+    color: var(--primary-blue);
+}
+.section-worry-lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-black);
+    text-align: center;
+}
+.section-worry-lead strong {
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+@media (min-width: 768px) {
+    .section-worry-lead { font-size: 1.0625rem; }
 }
 
 /* 空き家を放置すると... セクション（参照ソース u-bg-akiya と同じ） */
@@ -568,6 +679,35 @@ body {
     .p-whitebox .d-flex p.u-sp-ml-0 { margin-left: 16px; }
 }
 
+/* お客様の声・よくある質問：モバイルで自然なレスポンシブ（モデルサイト同様） */
+@media (max-width: 767px) {
+    .p-whitebox {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .p-whitebox > img.u-mb-40,
+    .p-whitebox > img.u-mb-20 {
+        max-width: 100%;
+    }
+    .p-whitebox .d-flex {
+        flex-wrap: wrap;
+    }
+    .p-whitebox .d-flex > img.hidden-sm-down {
+        width: 64px;
+        min-width: 64px;
+    }
+    .p-whitebox .d-flex p.u-ml-20,
+    .p-whitebox .d-flex p.u-sp-ml-0 {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+    }
+    .p-kaitori-list .u-mb-30 {
+        margin-bottom: 20px;
+    }
+}
+
 /* ========== よくある質問セクション（モデルサイトと同じクラス） ========== */
 .p-tit-bg-akiya {
     background-color: var(--primary-blue);
@@ -612,6 +752,24 @@ body {
     margin-right: auto;
 }
 
+@media (max-width: 767px) {
+    .p-tit-bg-akiya {
+        font-size: 1.5rem;
+        padding: 16px;
+    }
+    .p-faq-list .u-bg-white.u-padding-20.u-br-10 {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .p-faq-list li.u-mb-20 {
+        margin-bottom: 16px;
+    }
+    .p-faq-title + p {
+        font-size: 0.875rem;
+    }
+}
+
 /* ========== 固定フッター：CVAの3ボタンと同一（.cva-buttons をそのまま使用） ========== */
 .p-sticky-footer {
     position: fixed;
@@ -636,4 +794,50 @@ body {
 body { padding-bottom: 180px; }
 @media (min-width: 768px) {
     .p-sticky-footer { padding: 20px 24px 24px; }
+}
+
+/* 固定フッター：モバイルでモデルサイト同様に3ボタンを横並びでレスポンシブ */
+@media (max-width: 767px) {
+    .p-sticky-footer .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .p-sticky-footer .cva-buttons {
+        flex-wrap: nowrap;
+        gap: 6px;
+        justify-content: center;
+        align-items: stretch;
+    }
+    .p-sticky-footer .cva-buttons a {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    .p-sticky-footer .cva-btn {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        height: auto;
+        min-height: 56px;
+        padding: 8px 6px;
+        margin: 0;
+    }
+    .p-sticky-footer .cva-btn-icon {
+        font-size: 1.25rem;
+    }
+    .p-sticky-footer .cva-btn-text {
+        gap: 0;
+    }
+    .p-sticky-footer .cva-btn-label {
+        font-size: 10px;
+        line-height: 1.2;
+    }
+    .p-sticky-footer .cva-btn-main {
+        font-size: 11px;
+    }
+    .p-sticky-footer .cva-btn-tel .cva-btn-label {
+        font-size: 10px;
+    }
+    .p-sticky-footer .cva-btn-tel .cva-btn-tel-num {
+        font-size: 14px;
+    }
 }
