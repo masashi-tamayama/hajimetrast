@@ -59,6 +59,7 @@ body {
     background-color: #fff;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
 }
 
 .section-mv2 .container {
@@ -66,11 +67,23 @@ body {
     min-height: auto;
 }
 
-.section-mv2 img {
+/* ファーストビュー枠：モデルサイト（ワケガイ）と同じ 1572×736px（比率 2.14:1）に合わせる */
+.mv-frame {
+    width: 100%;
     max-width: 100%;
-    height: auto;
+    overflow: hidden;
+    background: #f9fafb;
+}
+.mv-frame-16-9 {
+    aspect-ratio: 1572 / 736;  /* モデルサイトと同じ比率＝このサイズの画像なら必ずはまる */
+}
+.mv-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
     display: block;
-    margin: 0 auto;
+    vertical-align: top;
 }
 @media (max-width: 767px) {
     .section-mv2 .container {
@@ -267,8 +280,16 @@ body {
     font-size: 1rem;
     line-height: 1.8;
 }
+.cva-sub-lg {
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+.cva-section-light .cva-sub-lg {
+    font-size: 2rem;
+}
 @media (min-width: 768px) {
     .cva-section-light .cva-sub { font-size: 1.0625rem; }
+    .cva-section-light .cva-sub-lg { font-size: 2rem; }
 }
 .cva-section-light .cva-btn-orange {
     min-width: 420px;
@@ -529,6 +550,18 @@ body {
     max-width: 100%;
     height: auto;
 }
+.omakase-h2-text {
+    color: var(--primary-blue);
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.omakase-h2-orange {
+    color: #e85c00;
+}
+@media (max-width: 767px) {
+    .omakase-h2-text { font-size: 2rem; }
+}
 .omakase-list {
     list-style: none;
     padding: 0;
@@ -538,8 +571,59 @@ body {
     gap: 0 2rem;
     align-items: start;
 }
+.omakase-list-text-only {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* アイコン＋本文レイアウト（決める必要はありません） */
+.omakase-content-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+}
+.omakase-options-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+.omakase-option-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.omakase-option-icon {
+    font-size: 4.5rem;
+    color: var(--primary-blue);
+}
+.omakase-option-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+@media (max-width: 767px) {
+    .omakase-option-icon { font-size: 3.25rem; }
+    .omakase-option-label { font-size: 1.0625rem; }
+}
+.omakase-body {
+    margin: 0;
+}
+.omakase-body-p {
+    font-size: 1.125rem;
+    color: #333;
+    line-height: 2;
+    margin-bottom: 1.5em;
+}
+.omakase-body-p:last-child {
+    margin-bottom: 0;
+}
 @media (min-width: 768px) {
-    .omakase-list {
+    .omakase-list:not(.omakase-list-text-only) {
         grid-template-columns: 1fr 1fr;
     }
 }

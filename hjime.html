@@ -29,12 +29,12 @@
         </div>
     </header>
 
-    <!-- Main Visual：モデルサイト section-mv2 と同じ構造（1枚のみ表示） -->
+    <!-- Main Visual：16:9枠で表示（モデルサイト風） -->
     <section class="section-mv2">
         <div class="container">
-            <p class="text-center">
-                <img src="https://wakegai.jp/images/akiya2/img-mv-01-pc.png" alt="実家じまいはワケガイにお任せ！ワンストップで空き家買取いたします" />
-            </p>
+            <div class="mv-frame mv-frame-16-9">
+                <img src="images/ファーストビュー2.png" alt="実家じまいははじめトラストにお任せ！ワンストップで空き家買取いたします" class="mv-img" />
+            </div>
         </div>
     </section>
 
@@ -163,40 +163,43 @@
     <!-- ワケガイにおまかせください！（参照ソースと同じ構造） -->
     <section class="section section-omakase py-16">
         <div class="container omakase-container">
-            <h2 class="omakase-h2 text-center mb-12 md:mb-16">
-                <img src="https://wakegai.jp/images/akiya/tit-akiya-02.svg" alt="ワケガイにおまかせください！" class="hidden md:block mx-auto max-w-full" />
-                <img src="https://wakegai.jp/images/akiya/tit-akiya-02-sp.svg" alt="ワケガイにおまかせください！" class="md:hidden mx-auto w-full max-w-md" />
-            </h2>
+            <h2 class="omakase-h2 omakase-h2-text text-center mb-12 md:mb-16">このページで、売却を<span class="omakase-h2-orange">決める必要</span>はありません</h2>
 
-            <ul class="omakase-list">
-                <!-- Row 1: テキスト左・画像右 -->
-                <li class="omakase-item omakase-item-text">
-                    <img src="https://wakegai.jp/images/akiya/img-num-01.svg" alt="1" class="omakase-num" />
-                    <h3 class="omakase-ttl"><span class="text-akiya-blue">経験豊富な専門のプロが</span><br>対応します。</h3>
-                    <p class="omakase-desc">スタッフ全員が宅地建物取引士の資格を保有しております。<br>訳あり不動産の再生ノウハウがあるプロが対応しますので、安心しておまかせいただけます。</p>
-                </li>
-                <li class="omakase-item omakase-item-img">
-                    <img src="https://wakegai.jp/images/akiya2/img-omakase-01.png" alt="" class="w-full h-auto" />
-                </li>
-                <!-- Row 2: 2の内容（HTMLで画像→文章の順にすると 画像左・文章右＆1→2→3の順を維持） -->
-                <li class="omakase-item omakase-item-img">
-                    <img src="https://wakegai.jp/images/akiya2/img-omakase-02.png" alt="" class="w-full h-auto" />
-                </li>
-                <li class="omakase-item omakase-item-text">
-                    <img src="https://wakegai.jp/images/akiya/img-num-02.svg" alt="2" class="omakase-num" />
-                    <h3 class="omakase-ttl"><span class="text-akiya-blue">全国対応、</span><br>豊富な取引実績</h3>
-                    <p class="omakase-desc">訳あり不動産の買取実績、対応エリアNo1<br>北海道から沖縄まで、全国の訳あり不動産を買取しています。</p>
-                </li>
-                <!-- Row 3: 3の内容（テキスト左・画像右） -->
-                <li class="omakase-item omakase-item-text">
-                    <img src="https://wakegai.jp/images/akiya/img-num-03.svg" alt="3" class="omakase-num" />
-                    <h3 class="omakase-ttl">自社で空き家再生、<br>販売できる<span class="text-akiya-blue">ノウハウ</span></h3>
-                    <p class="omakase-desc">独自の顧客集客、リフォーム、再生ノウハウがあるため、他社では買取できない案件でも買取することが可能です。</p>
-                </li>
-                <li class="omakase-item omakase-item-img">
-                    <img src="https://wakegai.jp/images/akiya2/img-omakase-03.png" alt="" class="w-full h-auto" />
-                </li>
-            </ul>
+            <div class="omakase-content-wrap">
+                <ul class="omakase-options-row">
+                    <li class="omakase-option-item"><i class="fas fa-house omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">保有</span></li>
+                    <li class="omakase-option-item"><i class="fas fa-lightbulb omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">活用</span></li>
+                    <li class="omakase-option-item"><i class="fas fa-hammer omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">解体</span></li>
+                    <li class="omakase-option-item"><i class="fas fa-hand-holding-dollar omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">売却</span></li>
+                </ul>
+                <div class="omakase-body">
+                    <p class="omakase-body-p">私たちは、空家を「今すぐ売るべき」とは考えていません。空家の対応には、保有・活用・解体・売却など複数の選択肢があり、状況によって最適解は変わります。</p>
+                    <p class="omakase-body-p">大切なのは、焦って決めることではなく、現況のまま取れる手段を知り、負担が増えない順番で整理することです。相談は、状況確認だけでも問題ありません。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中間CTA②（選択肢確認CTA） -->
+    <section class="cva-section-light py-12">
+        <div class="container text-center">
+            <p class="cva-sub cva-sub-lg mb-8">「売る・残す・壊す」ではなく、どの順番で考えると負担が少ないかを整理します。</p>
+            <div class="cva-buttons">
+                <a href="#" class="hover-scale block">
+                    <div class="cva-btn cva-btn-orange">
+                        <i class="fa-regular fa-envelope cva-btn-icon"></i>
+                        <div class="cva-btn-text">
+                            <span class="cva-btn-main">【空家の選択肢を確認する】</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="tel:0362613418" class="hover-scale block">
+                    <div class="cva-btn cva-btn-tel">
+                        <p class="cva-btn-label text-left">お電話でのお問い合わせ</p>
+                        <p class="cva-btn-tel-num">03-6261-3418</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
