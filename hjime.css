@@ -54,41 +54,23 @@ body {
     border: 1px dashed #d1d5db;
 }
 
-/* モデルサイト section-mv2 相当：背景白・上線・下線で区切り */
+/* ファーストビュー：画像を切らずに画面幅いっぱいで表示 */
 .section-mv2 {
     background-color: #fff;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
     overflow: hidden;
 }
-
-.section-mv2 .container {
-    padding-top: 40px;
-    min-height: auto;
-}
-
-/* ファーストビュー枠：モデルサイト（ワケガイ）と同じ 1572×736px（比率 2.14:1）に合わせる */
 .mv-frame {
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-    background: #f9fafb;
-}
-.mv-frame-16-9 {
-    aspect-ratio: 1572 / 736;  /* モデルサイトと同じ比率＝このサイズの画像なら必ずはまる */
+    line-height: 0;
 }
 .mv-frame img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+    height: auto;
     display: block;
-}
-@media (max-width: 767px) {
-    .section-mv2 .container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
 }
 
 /* ヘッダー：モデルサイトに合わせたサイズ・上線 */
