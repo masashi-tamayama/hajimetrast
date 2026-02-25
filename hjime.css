@@ -404,6 +404,18 @@ body {
     max-width: 100%;
     height: auto;
 }
+.risk-h2-text {
+    color: var(--primary-blue);
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.risk-h2-orange {
+    color: #e85c00;
+}
+@media (max-width: 767px) {
+    .risk-h2-text { font-size: 2rem; }
+}
 .risk-lead {
     font-size: 1.5rem;
     color: #333;
@@ -422,25 +434,20 @@ body {
     text-align: center;
     height: 100%;
 }
-.risk-point-num {
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
 .risk-card-icon {
     margin-top: 30px;
     margin-bottom: 0;
-    max-width: 120px;
-    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+.risk-card-icon-fa {
+    font-size: 3.5rem;
+    color: var(--primary-blue);
+}
 @media (max-width: 767px) {
     .risk-card-icon { margin-top: 10px; }
+    .risk-card-icon-fa { font-size: 2.75rem; }
 }
 .risk-card-ttl {
     font-size: 1.5rem;
@@ -471,11 +478,26 @@ body {
     max-width: 80px;
     height: auto;
 }
+.risk-warning-icon-fa {
+    font-size: 3rem;
+    color: var(--primary-blue);
+}
 .risk-warning-p {
-    font-size: 1.125rem;
     font-weight: 500;
     line-height: 2;
     color: #333;
+}
+.risk-warning-text-only {
+    font-size: 1.625rem;
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+}
+.risk-warning-line {
+    display: block;
+}
+@media (max-width: 767px) {
+    .risk-warning-text-only { font-size: 1.375rem; max-width: 100%; }
 }
 .risk-warning-red {
     background-color: #fff5f5;
