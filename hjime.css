@@ -852,22 +852,20 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-/* フロー画像の下段（二重表示）を非表示にする */
-.step-flow-img-wrap {
-    overflow: hidden;
-    max-height: 200px;
+/* STEP下：3枚の画像（左・中央・右） */
+.step-flow-three {
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+.step-flow-three .step-flow-img-wrap {
+    margin-left: 0;
+    margin-right: 0;
 }
 .step-flow-img-wrap img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    object-position: top center;
-}
-@media (min-width: 768px) {
-    .step-flow-img-wrap { max-height: 240px; }
 }
 .flow-list {
     display: flex;
