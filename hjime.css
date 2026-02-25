@@ -692,6 +692,28 @@ body {
 .omakase-block-h2-orange {
     color: #e85c00;
 }
+.seiri-options-body {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+}
+.seiri-option {
+    margin-bottom: 1.75rem;
+}
+.seiri-option-ttl {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+.seiri-option-txt {
+    font-size: 1rem;
+    color: #333;
+    line-height: 2;
+    margin: 0 0 0.5em;
+}
+.seiri-option-txt:last-child {
+    margin-bottom: 0;
+}
 @media (min-width: 768px) {
     .omakase-block-h2-text { font-size: 1.75rem; }
     .omakase-block-h2-text-lg { font-size: 2.25rem; }
