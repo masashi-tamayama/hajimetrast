@@ -1013,6 +1013,100 @@ body {
     max-width: 75%;
 }
 .p-whitebox p { margin: 0; line-height: 1.7; }
+.voice-price-region {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    line-height: 1.6;
+}
+/* お客様の声：買取価格・地域（2のデザイン：オレンジ価格・青地域バッジ・アイコン＋文章） */
+.voice-price-block {
+    margin-bottom: 1.25rem;
+}
+.voice-price-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+}
+.voice-price-label {
+    display: inline-block;
+    background-color: #f07f2e;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+.voice-price-num {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #f07f2e;
+    line-height: 1;
+}
+.voice-price-unit {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.voice-region-label {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    box-sizing: border-box;
+}
+.voice-region-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+.voice-testimonial {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.voice-icon-wrap {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    border: 2px solid #b8d4e8;
+    border-radius: 10px;
+    background-color: #f0f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.voice-icon {
+    font-size: 3rem !important;
+    color: #7eb8dc;
+}
+.voice-icon-wrap img.voice-icon {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display: block;
+}
+.voice-text {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    line-height: 1.7;
+}
+@media (max-width: 767px) {
+    .voice-price-label { font-size: 1.75rem; padding: 10px 20px; }
+    .voice-price-num { font-size: 2.5rem; }
+    .voice-price-unit { font-size: 1rem; }
+    .voice-region-label { font-size: 1.75rem; padding: 10px 20px; }
+    .voice-region-name { font-size: 1.25rem; font-weight: bold; }
+    .voice-icon-wrap { width: 80px; height: 80px; min-width: 80px; }
+    .voice-icon { font-size: 2.5rem; }
+}
 
 .d-flex { display: flex; flex-wrap: wrap; align-items: flex-start; }
 .d-flex .hidden-sm-down { flex-shrink: 0; }
