@@ -54,23 +54,86 @@ body {
     border: 1px dashed #d1d5db;
 }
 
-/* ファーストビュー：画像を切らずに画面幅いっぱいで表示 */
+/* ファーストビュー：モデルサイト同様 緑・青・オレンジの三層構造 */
 .section-mv2 {
-    background-color: #fff;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
     overflow: hidden;
+    position: relative;
 }
-.mv-frame {
+.mv-three-layers {
+    min-height: 320px;
+}
+/* 第1層：ミントグリーン（最下層・背景） */
+.mv-layer-green {
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    z-index: 0;
+}
+/* 第2層：青（メインコンテンツ＝画像エリア）モデルサイトの .container 指定を適用 */
+.section-mv2 .container.mv-layer-content {
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+@media (min-width: 576px) {
+    .section-mv2 .container.mv-layer-content { width: 540px; max-width: 100%; }
+}
+@media (min-width: 768px) {
+    .section-mv2 .container.mv-layer-content { width: 45pc; max-width: 100%; }
+}
+@media (min-width: 992px) {
+    .section-mv2 .container.mv-layer-content { width: 60pc; max-width: 100%; }
+}
+@media (min-width: 1200px) {
+    .section-mv2 .container.mv-layer-content { width: 855pt; max-width: 100%; }
+}
+.mv-layer-content .mv-frame {
     width: 100%;
-    max-width: 100%;
     overflow: hidden;
     line-height: 0;
+    aspect-ratio: 1101 / 519;
 }
-.mv-frame img {
-    width: 100%;
-    height: auto;
+.mv-frame picture {
     display: block;
+    width: 100%;
+    height: 100%;
+}
+.mv-layer-content .mv-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+}
+/* 第3層：オレンジ（右端の縦ストリップ） */
+.mv-layer-orange {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 12%;
+    min-width: 80px;
+    max-width: 160px;
+    background-color: #fff;
+    z-index: 2;
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .mv-layer-orange {
+        width: 8%;
+        min-width: 40px;
+        max-width: 80px;
+    }
 }
 
 /* ヘッダー：モデルサイトに合わせたサイズ・上線 */

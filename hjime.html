@@ -27,11 +27,18 @@
         </div>
     </header>
 
-    <!-- Main Visual：画像を切らずに幅いっぱい表示 -->
-    <section class="section-mv2">
-        <div class="mv-frame">
-            <img src="images/(1101 x 519 px).png" alt="相続した空家、どうすればいいか分からない方へ。売る・残す・壊すを決める前に、まずは状況を整理しませんか。" class="mv-img" />
+    <!-- Main Visual：モデルサイト同様 緑・青・オレンジの三層＋コンテナ -->
+    <section class="section-mv2 mv-three-layers">
+        <div class="mv-layer mv-layer-green" aria-hidden="true"></div>
+        <div class="container mv-layer-content">
+            <div class="mv-frame">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="images/名称未設定 (スマホの壁紙).png" />
+                    <img src="images/これ2.png" alt="相続した空家、どうすればいいか分からない方へ。売る・残す・壊すを決める前に、まずは状況を整理しませんか。" class="mv-img" />
+                </picture>
+            </div>
         </div>
+        <div class="mv-layer mv-layer-orange" aria-hidden="true"></div>
     </section>
 
     <!-- ② 共感・状況整理ブロック（はじめトラスト用） -->
@@ -195,7 +202,7 @@
             <ul class="omakase-block-list grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-10 md:mb-12">
                 <li class="omakase-block-item order-1">
                     <img src="images/img-num-01.svg" alt="1" class="omakase-block-num mb-5" />
-                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">選択肢①：保有・管理を続ける</h3>
+                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">保有・管理を続ける</h3>
                     <p class="text-base text-gray-700 leading-relaxed">将来使う予定がある場合は保有も選択肢です。ただし、税金や管理の手間、劣化リスクを現実的に見積もる必要があります。</p>
                 </li>
                 <li class="omakase-block-item omakase-block-item-img omakase-block-item-img-up order-2">
@@ -206,13 +213,13 @@
                 </li>
                 <li class="omakase-block-item order-3 md:order-4">
                     <img src="images/img-num-02.svg" alt="2" class="omakase-block-num mb-5" />
-                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">選択肢②：解体して更地にする</h3>
+                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">解体して更地にする</h3>
                     <p class="text-base text-gray-700 leading-relaxed">古家だからといって、すぐ解体が正解とは限りません。解体費用が先に発生し、更地後の活用・売却方針が定まらないと負担が残ります。</p>
                     <p class="text-base text-gray-700 leading-relaxed">解体は「売却可能性を確認した後」に検討しても遅くありません。</p>
                 </li>
                 <li class="omakase-block-item order-5">
                     <img src="images/img-num-03.svg" alt="3" class="omakase-block-num mb-5" />
-                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">選択肢③：売却する（仲介／買取）</h3>
+                    <h3 class="text-xl md:text-2xl font-bold mb-5 text-akiya-blue">売却する（仲介／買取）</h3>
                     <p class="text-base text-gray-700 leading-relaxed">仲介：時間をかけて高値を狙う。内見・片付け等の負担が出やすい<br>買取：不動産会社が直接買い取り。早く整理しやすく、現況のまま進められることもある</p>
                 </li>
                 <li class="omakase-block-item omakase-block-item-img omakase-block-item-img-up order-6">
