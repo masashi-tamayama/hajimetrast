@@ -360,15 +360,16 @@ body {
     .cva-section-light .cva-sub-lg { font-size: 2rem; }
 }
 .cva-section-light .cva-btn-orange {
-    min-width: 420px;
-    width: auto;
+    width: 320px;
+    min-width: 290px;
+    max-width: 320px;
     padding: 18px 28px;
 }
 .cva-section-light .cva-btn-orange .cva-btn-text {
     flex: 0 0 auto;
 }
 .cva-section-light .cva-btn-orange .cva-btn-main {
-    white-space: nowrap;
+    white-space: normal;
 }
 
 /* ========== ② 共感・状況整理ブロック（はじめトラスト用） ========== */
