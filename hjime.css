@@ -913,6 +913,11 @@ body {
 .step-lead {
     font-size: 1.5rem;
 }
+.step-lead-sub {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin: 0;
+}
 .step-list {
     list-style: none;
     padding: 0;
@@ -965,14 +970,22 @@ body {
     color: var(--primary-blue);
 }
 .step-ttl {
-    font-size: 1.625rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: var(--primary-blue);
     margin-top: 14px;
-    margin-bottom: 0;
+    margin-bottom: 8px;
+}
+.step-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-black);
+    margin: 0;
+    text-align: left;
 }
 @media (min-width: 768px) {
-    .step-ttl { font-size: 1.75rem; }
+    .step-ttl { font-size: 1.375rem; }
+    .step-desc { font-size: 0.9375rem; }
 }
 .step-flow-images img {
     max-width: 100%;
