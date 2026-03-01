@@ -218,18 +218,38 @@
     <!-- ワケガイにおまかせください！（参照ソースと同じ構造） -->
     <section class="section section-omakase py-16">
         <div class="container omakase-container">
-            <h2 class="omakase-h2 omakase-h2-text text-center mb-12 md:mb-16">このページで、売却を<span class="omakase-h2-orange">決める必要</span>はありません</h2>
+            <h2 class="reveal omakase-reveal omakase-h2 omakase-h2-text text-center mb-12 md:mb-16">このページで、売却を<span class="omakase-h2-orange">決める必要</span>はありません</h2>
 
-            <div class="omakase-content-wrap">
-                <ul class="omakase-options-row">
-                    <li class="omakase-option-item"><i class="fas fa-house omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">保有</span></li>
-                    <li class="omakase-option-item"><i class="fas fa-lightbulb omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">活用</span></li>
-                    <li class="omakase-option-item"><i class="fas fa-hammer omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">解体</span></li>
-                    <li class="omakase-option-item"><i class="fas fa-hand-holding-dollar omakase-option-icon" aria-hidden="true"></i><span class="omakase-option-label">売却</span></li>
-                </ul>
+            <ul class="reveal omakase-reveal omakase-options-row">
+                <li class="omakase-option-item">
+                    <div class="omakase-option-img-wrap">
+                        <img src="images/保有2.png" alt="保有" class="omakase-option-img" />
+                    </div>
+                    <span class="omakase-option-label">保有</span>
+                </li>
+                <li class="omakase-option-item">
+                    <div class="omakase-option-img-wrap">
+                        <img src="images/活用1.png" alt="活用" class="omakase-option-img" />
+                    </div>
+                    <span class="omakase-option-label">活用</span>
+                </li>
+                <li class="omakase-option-item">
+                    <div class="omakase-option-img-wrap">
+                        <img src="images/解体2.png" alt="解体" class="omakase-option-img" />
+                    </div>
+                    <span class="omakase-option-label">解体</span>
+                </li>
+                <li class="omakase-option-item">
+                    <div class="omakase-option-img-wrap">
+                        <img src="images/売却1.png" alt="売却" class="omakase-option-img" />
+                    </div>
+                    <span class="omakase-option-label">売却</span>
+                </li>
+            </ul>
+
+            <div class="reveal omakase-reveal omakase-content-wrap">
                 <div class="omakase-body">
-                    <p class="omakase-body-p">私たちは、空家を「今すぐ売るべき」とは考えていません。空家の対応には、保有・活用・解体・売却など複数の選択肢があり、状況によって最適解は変わります。</p>
-                    <p class="omakase-body-p">大切なのは、焦って決めることではなく、現況のまま取れる手段を知り、負担が増えない順番で整理することです。相談は、状況確認だけでも問題ありません。</p>
+                    <p class="omakase-body-p">私たちは、空家を「今すぐ売るべき」とは考えていません。空家の対応には、<span class="omakase-h2-orange">保有・活用・解体・売却など複数の選択肢</span>があり、状況によって最適解は変わります。大切なのは、焦って決めることではなく、現況のまま取れる手段を知り、<span class="omakase-h2-orange">負担が増えない順番で整理すること</span>です。相談は、状況確認だけでも問題ありません。</p>
                 </div>
             </div>
         </div>
@@ -238,7 +258,7 @@
     <!-- 中間CTA②（選択肢確認CTA） -->
     <section class="cva-section-light cva-section-light-bg py-12">
         <div class="container text-center">
-            <p class="cva-sub cva-sub-lg mb-8">「売る・残す・壊す」ではなく、どの順番で考えると負担が少ないかを整理します。</p>
+            <p class="cva-sub cva-sub-lg mb-8">「売る・残す・壊す」ではなく、<span class="omakase-h2-orange">どの順番で考えると負担が少ないか</span>を整理します。</p>
             <div class="cva-buttons">
                 <a href="#" class="hover-scale block">
                     <div class="cva-btn cva-btn-orange">
@@ -690,7 +710,7 @@
     })();
 
     (function() {
-        var observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
         var riskObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -707,6 +727,27 @@
         }, observerOptions);
         document.querySelectorAll('.risk-reveal').forEach(function(el) {
             riskObserver.observe(el);
+        });
+    })();
+
+    (function() {
+        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
+        var omakaseObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var parent = entry.target.closest('.section-omakase');
+                    if (!parent) return;
+                    var revealsInParent = Array.from(parent.querySelectorAll('.omakase-reveal'));
+                    var delayIndex = revealsInParent.indexOf(entry.target);
+                    if (delayIndex < 0) delayIndex = 0;
+                    setTimeout(function() {
+                        entry.target.classList.add('active');
+                    }, delayIndex * 150);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.omakase-reveal').forEach(function(el) {
+            omakaseObserver.observe(el);
         });
     })();
     </script>
