@@ -374,7 +374,7 @@ body {
 
 /* ========== ② 共感・状況整理ブロック（はじめトラスト用・アニメーション付き） ========== */
 .section-worry {
-    background-color: #f9fafb;
+    background-color: var(--light-blue-bg);
 }
 /* お悩みBOX：チェックアイコン影 */
 .check-box-shadow {
