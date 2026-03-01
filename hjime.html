@@ -41,21 +41,76 @@
         <div class="mv-layer mv-layer-orange" aria-hidden="true"></div>
     </section>
 
-    <!-- ② 共感・状況整理ブロック（はじめトラスト用） -->
+    <!-- ② 共感・状況整理ブロック（はじめトラスト用・アニメーション付き） -->
     <section class="section section-worry bg-gray-50 py-16">
-        <h2 class="section-title-bg mb-12">空家のことで、こんなお悩みはありませんか？</h2>
-        <div class="container">
-            <ul class="p-worry-list">
-                <li>相続で突然空家を持つことになり、何から手を付ければいいか分からない</li>
-                <li>遠方で管理できず、気になりながら放置してしまっている</li>
-                <li>売るか残すか、気持ちの整理がつかない</li>
-                <li>片付けや修繕が大変そうで動けない</li>
-                <li>仲介と買取の違いが分からず、相談先も決められない</li>
-                <li>「売らされそう」で不動産会社に相談しづらい</li>
-            </ul>
-            <p class="section-worry-lead">
+        <!-- ヘッダー部分：青い帯は全幅 -->
+        <div class="reveal worry-reveal mb-10">
+            <h2 class="section-title-bg mb-0">空家のことで、こんなお悩みはありませんか？</h2>
+        </div>
+        <div class="container max-w-4xl mx-auto">
+            <!-- お悩みリストBOX -->
+            <div class="border border-blue-400 overflow-hidden rounded-lg bg-white shadow-xl worry-box">
+                <!-- 項目1 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-50 border-b border-blue-100 transition-colors duration-300 hover:bg-blue-100">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600 bg-white rounded-md border-2 border-blue-600 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-gray-800">相続で突然空家を持つことになり、何から手を付ければいいか分からない</p>
+                </div>
+                <!-- 項目2 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-400 border-b border-blue-300 transition-colors duration-300 hover:bg-blue-500">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-800 bg-white rounded-md border-2 border-blue-800 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-white">遠方で管理できず、気になりながら放置してしまっている</p>
+                </div>
+                <!-- 項目3 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-50 border-b border-blue-100 transition-colors duration-300 hover:bg-blue-100">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600 bg-white rounded-md border-2 border-blue-600 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-gray-800">売るか残すか、気持ちの整理がつかない</p>
+                </div>
+                <!-- 項目4 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-400 border-b border-blue-300 transition-colors duration-300 hover:bg-blue-500">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-800 bg-white rounded-md border-2 border-blue-800 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-white">片付けや修繕が大変そうで動けない</p>
+                </div>
+                <!-- 項目5 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-50 border-b border-blue-100 transition-colors duration-300 hover:bg-blue-100">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600 bg-white rounded-md border-2 border-blue-600 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-gray-800">仲介と買取の違いが分からず、相談先も決められない</p>
+                </div>
+                <!-- 項目6 -->
+                <div class="reveal worry-reveal flex items-center p-5 md:p-8 bg-blue-400 transition-colors duration-300 hover:bg-blue-500">
+                    <div class="flex-shrink-0 mr-4 md:mr-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-800 bg-white rounded-md border-2 border-blue-800 p-1 check-box-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="check-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold text-white">「売らされそう」で不動産会社に相談しづらい</p>
+                </div>
+            </div>
+        </div>
+        <!-- リード文のみモデルと同じ表示幅（.container = 1100px） -->
+        <div class="section-worry-lead-wrap">
+            <p class="section-worry-lead mt-10">
                 空家が放置されるのは無責任だからではありません。<br>
-                多くの方が、<strong>「まだ困っていない」「判断が重い」「誰に相談すべきか不明」</strong>という理由で止まってしまいます。<br>
+                多くの方が、<span class="worry-lead-orange">「まだ困っていない」「判断が重い」「誰に相談すべきか不明」</span>という理由で止まってしまいます。<br>
                 まずは、売却の決断より先に "状況を整理する" ことから始めましょう。
             </p>
         </div>
@@ -584,6 +639,22 @@
         }
         window.addEventListener('scroll', function() { requestAnimationFrame(update); }, { passive: true });
         update();
+    })();
+
+    (function() {
+        var observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry, index) {
+                if (entry.isIntersecting) {
+                    setTimeout(function() {
+                        entry.target.classList.add('active');
+                    }, index * 150);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.worry-reveal').forEach(function(el) {
+            observer.observe(el);
+        });
     })();
     </script>
 </body>
