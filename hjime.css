@@ -370,6 +370,13 @@ body {
 }
 .cva-section-light .cva-btn-orange .cva-btn-main {
     white-space: normal;
+    font-size: 17px;
+    line-height: 1.35;
+}
+@media (max-width: 480px) {
+    .cva-section-light .cva-btn-orange .cva-btn-main {
+        font-size: 15px;
+    }
 }
 
 /* ========== ② 共感・状況整理ブロック（はじめトラスト用・アニメーション付き） ========== */
