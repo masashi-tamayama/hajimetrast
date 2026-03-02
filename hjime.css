@@ -213,14 +213,21 @@ body {
 
 @media (max-width: 767px) {
     .p-header .container {
-        align-items: stretch;
+        align-items: center;
     }
     .p-header-left {
         width: 100%;
         flex-shrink: 0;
+        text-align: center;
     }
     .p-header-right {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .p-header-right a {
+        text-align: center;
     }
     .p-header-desc {
         font-size: 12px;
@@ -1048,12 +1055,49 @@ body {
 .seiri-option-txt:last-child {
     margin-bottom: 0;
 }
+/* 空家の整理方法は大きく3つ：ブロック間余白はここで完全に制御（Tailwindの space-y-32 を使わない） */
+.section-omakase-block .seiri-three-blocks > * + * {
+    margin-top: 3rem;
+}
+.section-omakase-block .seiri-three-blocks .flex.gap-8 {
+    gap: 2rem;
+}
+.section-omakase-block .seiri-three-blocks .omakase-body-p.mt-12 {
+    margin-top: 2rem;
+}
 @media (min-width: 768px) {
     .omakase-block-h2-text { font-size: 1.75rem; }
     .omakase-block-h2-text-lg { font-size: 2rem; }  /* 「空家の整理は…」PCでやや大きく */
+    .section-omakase-block .seiri-three-blocks > * + * {
+        margin-top: 3rem;
+    }
+    .section-omakase-block .seiri-three-blocks .flex.gap-8 {
+        gap: 2rem;
+    }
+    .section-omakase-block .max-w-6xl.pt-16 {
+        padding-top: 2.5rem;
+    }
+    .section-omakase-block .text-center.mb-16.reveal {
+        margin-bottom: 2.5rem;
+    }
 }
 @media (max-width: 767px) {
     .omakase-block-h2-text-lg { font-size: 1.625rem; }  /* 「空家の整理は…」スマホでやや大きく */
+    .section-omakase-block .seiri-three-blocks > * + * {
+        margin-top: 1.5rem;
+    }
+    .section-omakase-block .seiri-three-blocks .flex.gap-8 {
+        gap: 1.25rem;
+    }
+    .section-omakase-block .max-w-6xl.pt-16 {
+        padding-top: 1.5rem;
+    }
+    .section-omakase-block .text-center.mb-16.reveal {
+        margin-bottom: 2rem;
+    }
+    .section-omakase-block .omakase-body-p.mt-12 {
+        margin-top: 2rem;
+    }
 }
 /* 選択肢①②③の下のリード文：上の余白を狭く・1行表示 */
 .section-omakase-block .omakase-block-list {
@@ -1279,6 +1323,17 @@ body {
 .section { padding-top: 40px; padding-bottom: 40px; }
 @media (min-width: 768px) {
     .section { padding-top: 60px; padding-bottom: 60px; }
+}
+/* 「このページで、売却を決める必要はありません」セクションの上余白のみ詰める（.section より優先） */
+.section.section-omakase-spacing {
+    padding-top: 0rem;
+    padding-bottom: 4rem;
+}
+@media (min-width: 768px) {
+    .section.section-omakase-spacing {
+        padding-top: 0rem;
+        padding-bottom: 4rem;
+    }
 }
 .u-bg-akiya { background-color: var(--light-blue-bg); }
 /* お客様の声：見出しを「最短即日決済！」と同じサイズに */
@@ -1682,6 +1737,19 @@ body {
     .p-footer-logo-text {
         font-size: 1.25rem;
     }
+    /* スマホ：ワケアリ相談所〜プライバシーポリシー〜電話を中央揃え */
+    footer.bg-akiya-blue .container > .flex {
+        align-items: center;
+    }
+    footer.bg-akiya-blue .container > .flex > div {
+        text-align: center;
+    }
+    footer.bg-akiya-blue .container > .flex .text-left {
+        text-align: center;
+    }
+    footer.bg-akiya-blue .container > p.text-gray-400 {
+        text-align: center;
+    }
 }
 
 /* ========== 固定フッター：CVAの3ボタンと同一（.cva-buttons をそのまま使用） ========== */
@@ -1704,17 +1772,30 @@ body {
     transform: translateY(0);
     visibility: visible;
 }
-/* 固定フッターの高さ分、下に余白を確保（全画面） */
-body { padding-bottom: 180px; }
+/* 固定フッターの高さ分は footer の padding で確保（白い隙間が出ないように） */
+body { padding-bottom: 0; }
+footer.bg-akiya-blue {
+    padding-bottom: 180px;
+    margin-bottom: 0;
+}
 @media (min-width: 768px) {
     .p-sticky-footer { padding: 20px 24px 24px; }
+    /* PCでは意図的改行を非表示（ボタン幅が十分あるため） */
+    .p-sticky-footer .cva-btn-label br,
+    .p-sticky-footer .cva-btn-tel .cva-btn-label br { display: none; }
 }
 
 /* 固定フッター：モバイルでモデルサイト同様に3ボタンを横並びでレスポンシブ */
 @media (max-width: 767px) {
+    .p-sticky-footer {
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 16px;
+    }
     .p-sticky-footer .container {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: none;
     }
     .p-sticky-footer .cva-buttons {
         flex-wrap: nowrap;
@@ -1730,26 +1811,39 @@ body { padding-bottom: 180px; }
         width: 100%;
         min-width: 0;
         max-width: none;
-        height: auto;
-        min-height: 56px;
-        padding: 8px 6px;
+        height: 72px;
+        min-height: 72px;
+        padding: 8px 4px;
         margin: 0;
+        align-items: center;
+    }
+    .p-sticky-footer .cva-btn-tel {
+        justify-content: center;
     }
     .p-sticky-footer .cva-btn-icon {
-        font-size: 1.25rem;
+        font-size: 1.75rem;
+        flex-shrink: 0;
     }
     .p-sticky-footer .cva-btn-text {
-        gap: 0;
+        gap: 2px;
     }
+    /* スマホ：改行位置を整え、単語の途中で切れないように */
     .p-sticky-footer .cva-btn-label {
         font-size: 10px;
-        line-height: 1.2;
+        line-height: 1.35;
+        word-break: keep-all;
+        overflow-wrap: normal;
     }
     .p-sticky-footer .cva-btn-main {
         font-size: 11px;
+        line-height: 1.3;
+        word-break: keep-all;
+        overflow-wrap: normal;
     }
     .p-sticky-footer .cva-btn-tel .cva-btn-label {
         font-size: 10px;
+        line-height: 1.35;
+        word-break: keep-all;
     }
     .p-sticky-footer .cva-btn-tel .cva-btn-tel-num {
         font-size: 14px;
