@@ -818,173 +818,64 @@
     </footer>
 
     <script>
+    /* ----- ページトップへ戻る ----- */
     (function() {
         var btn = document.getElementById('scroll-top-btn');
-        if (btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
+        if (btn) btn.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     })();
 
+    /* ----- 固定フッターの表示/非表示 ----- */
     (function() {
         var footer = document.querySelector('.p-sticky-footer');
         if (!footer) return;
         var threshold = 150;
         function update() {
             var y = window.scrollY || document.documentElement.scrollTop;
-            if (y > threshold) {
-                footer.classList.add('is-visible');
-            } else {
-                footer.classList.remove('is-visible');
-            }
+            footer.classList.toggle('is-visible', y > threshold);
         }
         window.addEventListener('scroll', function() { requestAnimationFrame(update); }, { passive: true });
         update();
     })();
 
+    /* ----- スクロール連動リビール（統合） ----- */
     (function() {
-        var observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry, index) {
-                if (entry.isIntersecting) {
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, index * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.worry-reveal').forEach(function(el) {
-            observer.observe(el);
-        });
-    })();
+        var DEFAULT_OPTIONS = { rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
+        var revealConfigs = [
+            { selector: '.worry-reveal', parent: null, delay: 100, rootMargin: '0px', threshold: 0.2, useGlobalIndex: true },
+            { selector: '.risk-reveal', parent: '.section-akiya-risk', delay: 100 },
+            { selector: '.omakase-reveal', parent: '.section-omakase', delay: 100 },
+            { selector: '.omakase-block-reveal', parent: '.section-omakase-block', delay: 100 },
+            { selector: '.why-buy-reveal', parent: '.section-why-buy', delay: 100, quickClass: 'why-buy-reveal-quick', quickDelay: 100 },
+            { selector: '.step-reveal', parent: '.section-step', delay: 100 },
+            { selector: '.faq-reveal', parent: '.section-faq', delay: 100 }
+        ];
 
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var riskObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-akiya-risk');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.risk-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayIndex * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.risk-reveal').forEach(function(el) {
-            riskObserver.observe(el);
-        });
-    })();
+        function createRevealObserver(config) {
+            var opts = { root: null, rootMargin: config.rootMargin !== undefined ? config.rootMargin : DEFAULT_OPTIONS.rootMargin, threshold: config.threshold !== undefined ? config.threshold : DEFAULT_OPTIONS.threshold };
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    var el = entry.target;
+                    var delayMs = config.delay || 100;
+                    if (config.quickClass && el.classList.contains(config.quickClass)) {
+                        delayMs = config.quickDelay !== undefined ? config.quickDelay : 100;
+                    } else if (config.useGlobalIndex) {
+                        var all = Array.from(document.querySelectorAll(config.selector));
+                        delayMs = all.indexOf(el) * (config.delay || 100);
+                    } else if (config.parent) {
+                        var parent = el.closest(config.parent);
+                        if (!parent) return;
+                        var list = Array.from(parent.querySelectorAll(config.selector));
+                        var idx = list.indexOf(el);
+                        delayMs = (idx < 0 ? 0 : idx) * (config.delay || 100);
+                    }
+                    setTimeout(function() { el.classList.add('active'); }, delayMs);
+                });
+            }, opts);
+            document.querySelectorAll(config.selector).forEach(function(el) { observer.observe(el); });
+        }
 
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var omakaseObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-omakase');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.omakase-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayIndex * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.omakase-reveal').forEach(function(el) {
-            omakaseObserver.observe(el);
-        });
-    })();
-
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var blockObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-omakase-block');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.omakase-block-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayIndex * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.omakase-block-reveal').forEach(function(el) {
-            blockObserver.observe(el);
-        });
-    })();
-
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var whyBuyObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-why-buy');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.why-buy-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    var delayMs = entry.target.classList.contains('why-buy-reveal-quick') ? 200 : delayIndex * 150;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayMs);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.why-buy-reveal').forEach(function(el) {
-            whyBuyObserver.observe(el);
-        });
-    })();
-
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var stepObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-step');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.step-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayIndex * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.step-reveal').forEach(function(el) {
-            stepObserver.observe(el);
-        });
-    })();
-
-    (function() {
-        var observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.05 };
-        var faqObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var parent = entry.target.closest('.section-faq');
-                    if (!parent) return;
-                    var revealsInParent = Array.from(parent.querySelectorAll('.faq-reveal'));
-                    var delayIndex = revealsInParent.indexOf(entry.target);
-                    if (delayIndex < 0) delayIndex = 0;
-                    setTimeout(function() {
-                        entry.target.classList.add('active');
-                    }, delayIndex * 150);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.faq-reveal').forEach(function(el) {
-            faqObserver.observe(el);
-        });
+        revealConfigs.forEach(createRevealObserver);
     })();
     </script>
 </body>
