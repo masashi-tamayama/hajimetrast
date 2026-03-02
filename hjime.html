@@ -629,6 +629,91 @@
         </div>
     </section>
 
+    <!-- 無料相談・査定フォーム -->
+    <section class="section section-form bg-akiya-blue py-16">
+        <div class="container">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-2xl md:text-4xl font-bold text-blue-600 mb-0">無料査定フォーム</h2>
+            </div>
+            <p class="form-lead text-center text-akiya-blue mb-10">以下のフォームからお気軽にご相談ください。</p>
+
+            <form class="consult-form" action="#" method="post">
+                <div class="form-block form-block-required">
+                    <div class="form-row">
+                        <label class="form-label" for="form-name">お名前 <span class="form-required">必須</span></label>
+                        <input type="text" id="form-name" name="name" class="form-input" required placeholder="例：山田 太郎">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="form-tel">電話番号 <span class="form-required">必須</span></label>
+                        <input type="tel" id="form-tel" name="tel" class="form-input" required placeholder="例：03-1234-5678">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="form-email">メールアドレス</label>
+                        <span class="form-optional">任意</span>
+                        <input type="email" id="form-email" name="email" class="form-input" placeholder="例：example@email.com">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="form-address">物件所在地 <span class="form-required">必須</span></label>
+                        <input type="text" id="form-address" name="address" class="form-input" required placeholder="市区町村まででOK（例：東京都千代田区）">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="form-status">空家の状況 <span class="form-required">必須</span></label>
+                        <select id="form-status" name="status" class="form-select" required>
+                            <option value="">選択してください</option>
+                            <option value="相続した">相続した</option>
+                            <option value="転居で空家">転居で空家</option>
+                            <option value="賃貸終了">賃貸終了</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="form-hope">ご希望 <span class="form-required">必須</span></label>
+                        <select id="form-hope" name="hope" class="form-select" required>
+                            <option value="">選択してください</option>
+                            <option value="早く整理したい">早く整理したい</option>
+                            <option value="できれば高く">できれば高く</option>
+                            <option value="まずは状況整理">まずは状況整理</option>
+                            <option value="未定">未定</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-block form-block-optional">
+                    <div class="form-row">
+                        <label class="form-label" for="form-content">相談内容</label>
+                        <span class="form-optional">任意</span>
+                        <textarea id="form-content" name="content" class="form-textarea" rows="5" placeholder="ご相談内容をご記入ください"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-submit-wrap">
+                    <button type="submit" class="form-submit-btn">
+                        <i class="fa-regular fa-paper-plane form-submit-icon" aria-hidden="true"></i>
+                        <span>送信する</span>
+                    </button>
+                    <div class="section-contact__note mt-8">
+                        <div class="section-contact__note-card">
+                            <ul class="section-contact__note-list" role="list" aria-label="安心ポイント">
+                                <li class="section-contact__note-item">
+                                    <i class="fa-solid fa-check section-contact__note-check"></i>
+                                    <span>査定＝売却ではありません</span>
+                                </li>
+                                <li class="section-contact__note-item">
+                                    <i class="fa-solid fa-check section-contact__note-check"></i>
+                                    <span>無理な営業は行いません</span>
+                                </li>
+                                <li class="section-contact__note-item">
+                                    <i class="fa-solid fa-check section-contact__note-check"></i>
+                                    <span>ご相談は無料です</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- 会社情報カード（フッター直上） -->
     <section class="p-company-info">
         <div class="container">
@@ -718,9 +803,14 @@
                         <li><a href="#">プライバシーポリシー</a></li>
                     </ul>
                 </div>
-                <div class="w-full md:w-auto">
-                    <p class="text-sm font-bold mb-2">お電話でのお問い合わせ</p>
-                    <p class="text-4xl font-bold text-akiya-blue">03-6261-3418</p>
+                <div class="w-full md:w-auto flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8">
+                    <div>
+                        <p class="text-sm font-bold mb-2">お電話でのお問い合わせ</p>
+                        <p class="text-4xl font-bold text-akiya-blue">03-6261-3418</p>
+                    </div>
+                    <a href="#" class="p-scroll-top-btn" id="scroll-top-btn" aria-label="ページトップへ" title="ページトップへ">
+                        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
             <p class="mt-10 text-xs text-gray-400">&copy; 株式会社はじめトラスト All rights reserved.</p>
@@ -728,6 +818,16 @@
     </footer>
 
     <script>
+    (function() {
+        var btn = document.getElementById('scroll-top-btn');
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    })();
+
     (function() {
         var footer = document.querySelector('.p-sticky-footer');
         if (!footer) return;

@@ -8,6 +8,7 @@
     --primary-blue: #0365b2;
     --light-blue-bg: #f0f7ff;
     --accent-red: #e60012;
+    --accent-orange: #f48024;
     --text-black: #333;
 }
 html {
@@ -376,6 +377,185 @@ body {
 @media (max-width: 480px) {
     .cva-section-light .cva-btn-orange .cva-btn-main {
         font-size: 15px;
+    }
+}
+
+/* ========== 無料相談・査定フォーム ========== */
+.section-form .form-lead {
+    font-size: 1.0625rem;
+    margin: 0;
+}
+.consult-form {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 2rem 1.5rem;
+}
+.form-block {
+    margin-bottom: 2rem;
+}
+.form-block:last-of-type {
+    margin-bottom: 2.5rem;
+}
+.form-block-ttl {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.form-row {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 8px;
+}
+.form-row:last-child {
+    margin-bottom: 0;
+}
+.form-label {
+    display: block;
+    width: 100%;
+    font-size: 0.9375rem;
+    font-weight: bold;
+    color: var(--text-black);
+    margin-bottom: 4px;
+}
+.form-required {
+    font-size: 0.75rem;
+    color: #e60012;
+    font-weight: normal;
+}
+.form-optional {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: normal;
+}
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text-black);
+    box-sizing: border-box;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(3, 101, 178, 0.15);
+}
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.form-submit-wrap {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+.form-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+    padding: 18px 28px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f48024;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.form-submit-btn:hover {
+    opacity: 0.9;
+}
+.form-submit-icon {
+    font-size: 1.25rem;
+}
+.form-notice {
+    margin: 1rem 0 0.75rem 0;
+    font-size: 0.9375rem;
+    font-weight: bold;
+}
+.form-notice-orange {
+    color: #f48024;
+}
+.form-badges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-black);
+}
+.form-badges li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.form-badges li i {
+    color: var(--primary-blue);
+    font-size: 1rem;
+}
+
+/* 送信ボタン直下の文言（カード風・リスト形式） */
+.section-contact__note.mt-8 {
+    margin-top: 2rem;
+}
+.section-contact__note-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 1.5rem 1.75rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(26, 45, 92, 0.08);
+    border-top: 3px solid var(--accent-orange);
+}
+.section-contact__note-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.section-contact__note-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #4b5563;
+}
+.section-contact__note-check {
+    color: var(--accent-orange);
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .consult-form {
+        padding: 2.5rem 2rem;
+    }
+    .form-badges {
+        font-size: 0.9375rem;
     }
 }
 
@@ -1436,6 +1616,31 @@ body {
 }
 
 /* フッター：会社名テキストロゴ */
+/* フッター：ページトップへ戻るボタン */
+.p-scroll-top-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+    background-color: var(--primary-blue);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+.p-scroll-top-btn:hover {
+    opacity: 0.9;
+    color: #fff;
+    transform: translateY(-2px);
+}
+.p-scroll-top-btn i {
+    font-size: 1.25rem;
+}
+
 .p-footer-logo-text {
     font-size: 1.5rem;
     font-weight: bold;
