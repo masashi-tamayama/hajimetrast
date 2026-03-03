@@ -676,6 +676,11 @@ body {
     display: inline-block;
     animation: mv-lead-flow 45s linear infinite;
 }
+@media (max-width: 767px) {
+    .section-mv-lead .section-mv-lead-oneline {
+        font-size: 1.4rem;
+    }
+}
 @media (min-width: 768px) {
     .section-mv-lead .section-mv-lead-oneline {
         font-size: 2rem;
