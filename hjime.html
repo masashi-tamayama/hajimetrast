@@ -8,6 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="hjime.css">
+    <!-- スマホでヘッダー・ファーストビューを確実に全幅＆中央（Tailwindより後に適用） -->
+    <style>
+    @media (max-width: 767px) {
+        .p-header, .section-mv2.mv-three-layers { width: 100% !important; }
+        .p-header .container,
+        .section-mv2 .container.mv-layer-content {
+            width: 100% !important; max-width: 100% !important;
+            margin-left: auto !important; margin-right: auto !important;
+        }
+        .p-header .container {
+            display: flex !important; flex-direction: column !important;
+            align-items: center !important; justify-content: flex-start !important;
+            text-align: center !important;
+        }
+        .p-header-left, .p-header-right, .p-header-desc,
+        .p-header-right a, .p-header-tel-label, .p-header-tel-num {
+            text-align: center !important;
+        }
+        /* 無料査定依頼・売却相談・電話番号を中央に保持 */
+        .p-header-right { display: flex !important; justify-content: center !important; }
+        .p-header-left .p-header-logo { transform: translateX(50px) !important; }
+    }
+    </style>
 </head>
 <body class="bg-white">
 
@@ -16,7 +39,7 @@
         <div class="container flex flex-col md:flex-row justify-between items-center">
             <div class="p-header-left mb-4 md:mb-0 text-center md:text-left">
                 <p class="p-header-desc">空家・相続不動産の整理と選択肢のご提案を行う不動産会社です。<br>売却を決める前のご相談から、丁寧に伴走いたします。</p>
-                <a href="/" class="p-header-logo p-header-logo-text">ワケアリ相談所 by はじめトラスト</a>
+                <a href="/" class="p-header-logo"><img src="images/ワケアリ相談所ロゴ800200.png" alt="ワケアリ相談所 by はじめトラスト" class="p-header-logo-img" /></a>
             </div>
             <div class="p-header-right flex items-center">
                 <a href="tel:0362613418" class="text-center group">
@@ -797,7 +820,7 @@
         <div class="container text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-start border-b border-gray-200 pb-10">
                 <div class="mb-8 md:mb-0">
-                    <p class="p-footer-logo-text mb-4 mx-auto md:mx-0">ワケアリ相談所 by はじめトラスト</p>
+                    <img src="images/ワケアリ相談所ロゴフッター.png" alt="ワケアリ相談所 by はじめトラスト" class="p-footer-logo-img mb-4 mx-auto md:mx-0" />
                     <ul class="flex gap-4 text-xs font-bold text-gray-600 justify-center md:justify-start">
                         <li><a href="#">会社概要</a></li>
                         <li><a href="#">プライバシーポリシー</a></li>
