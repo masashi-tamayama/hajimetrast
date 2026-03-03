@@ -7,13 +7,13 @@
     <meta name="description" content="空家・相続不動産の整理と選択肢のご提案。売却を決める前のご相談から、仲介・買取・保有・解体の整理まで丁寧に伴走します。株式会社はじめトラスト。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="hjime.css">
     <!-- スマホでヘッダー・ファーストビューを確実に全幅＆中央（Tailwindより後に適用） -->
     <style>
     @media (max-width: 767px) {
-        .p-header, .section-mv2.mv-three-layers { width: 100% !important; }
-        .p-header .container,
-        .section-mv2 .container.mv-layer-content {
+        .p-header { width: 100% !important; }
+        .p-header .container {
             width: 100% !important; max-width: 100% !important;
             margin-left: auto !important; margin-right: auto !important;
         }
@@ -50,18 +50,88 @@
         </div>
     </header>
 
-    <!-- Main Visual：モデルサイト同様 緑・青・オレンジの三層＋コンテナ -->
-    <section class="section-mv2 mv-three-layers">
-        <div class="mv-layer mv-layer-green" aria-hidden="true"></div>
-        <div class="container mv-layer-content">
-            <div class="mv-frame">
-                <picture>
-                    <source media="(max-width: 767px)" srcset="images/スマホサブなし.png" />
-                    <img src="images/ファーストビューサブなし.png" alt="相続した空家、どうすればいいか分からない方へ。売る・残す・壊すを決める前に、まずは状況を整理しませんか。" class="mv-img" />
-                </picture>
+    <!-- Main Visual：水色三角背景＋中央コンテンツ＋人物を右寄せ -->
+    <section class="section-mv2">
+        <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
+        <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
+        <div class="mv-frame">
+            <!-- 中央コンテンツ（スクショモデルに合わせた文章・アイコン・枠） -->
+            <div class="mv-content">
+                <div class="mv-content-inner">
+                    <!-- 上部：空き家の買取専門店（中央上） -->
+                    <div class="mv-badge-row mv-badge-row-center">
+                        <div class="mv-badge-main">
+                            <span class="mv-badge-icon" aria-hidden="true"><i class="fas fa-magnifying-glass"></i><i class="fas fa-house"></i></span>
+                            <span class="mv-badge-text">空家・相続のご相談窓口</span>
+                        </div>
+                    </div>
+                    <!-- リード文（山形バランス） -->
+                    <p class="mv-lead mv-lead-yamagata">
+                        <span class="mv-lead-head">
+                            <span class="mv-lead-head-line1">
+                                <span class="mv-lead-line1">相続した空家</span>
+                            </span><br>
+                            <span class="mv-lead-head-line2">
+                                <span class="mv-lead-line2">どうすればいいか分からない方へ</span>
+                            </span>
+                        </span><br>
+                        <span class="mv-lead-line3">売る・残す・壊すを決める前に、まずは状況を整理しませんか。</span>
+                    </p>
+                    <!-- 3つの特徴ボックス（オレンジカード） -->
+                    <div class="mv-feature-boxes">
+                        <div class="mv-feature-grid">
+                            <!-- 1: どんな状態の空き家でも歓迎 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                                    </svg>
+                                </div>
+                                <div class="card-text">
+                                    無料でお気軽にご相談いただけます
+                                </div>
+                            </div>
+                            <!-- 2: 家財道具や不用品はそのままでOK -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M21,11V15C21,15.55 20.55,16 20,16H18V13.84C18,12.72 17.2,11.75 16.11,11.54C14.77,11.28 13.5,12.29 13.5,13.6V16H10.5V13.6C10.5,12.29 9.23,11.28 7.89,11.54C6.8,11.75 6,12.72 6,13.84V16H4C3.45,16 3,15.55 3,15V11C3,9.34 4.34,8 6,8H18C19.66,8 21,9.34 21,11M23,17V19H1V17H2V11C2,8.79 3.79,7 6,7H18C20.21,7 22,8.79 22,11V17H23Z" />
+                                    </svg>
+                                </div>
+                                <div class="card-text">
+                                    ご相談内容は秘密厳守で対応します
+                                </div>
+                            </div>
+                            <!-- 3 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M15,13H9V11H15M12,20A8,8 0 1,1 20,12A8,8 0 0,1 12,20Z" />
+                                    </svg>
+                                </div>
+                                <div class="card-text">
+                                    無理な営業はありません
+                                </div>
+                            </div>
+                            <!-- 4: 相続・空家・共有整理対応 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M3 5H21V7H3V5M3 11H21V13H3V11M3 17H21V19H3V17Z" />
+                                    </svg>
+                                </div>
+                                <div class="card-text">
+                                    相続・空家・共有問題の整理に対応
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mv-person-wrap">
+                <img src="images/680918.png" alt="相続した空家のご相談はお気軽に。" class="mv-person-img" />
             </div>
         </div>
-        <div class="mv-layer mv-layer-orange" aria-hidden="true"></div>
     </section>
 
     <!-- ファーストビュー直下：リード文（左から右に流れるアニメーション・全幅） -->
