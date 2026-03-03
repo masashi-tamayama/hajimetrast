@@ -593,6 +593,10 @@ body {
 .section-worry {
     background-color: var(--light-blue-bg);
 }
+/* お悩みセクション：上の薄い水色帯をなくす（青い見出しを直下に） */
+.section.section-worry {
+    padding-top: 0 !important;
+}
 /* お悩みBOX：チェックアイコン影 */
 .check-box-shadow {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -646,6 +650,40 @@ body {
 .worry-lead-orange {
     font-weight: 700;
     color: #f48024;
+}
+/* ファーストビュー直下リード文：白背景・上下余白最小 */
+.section-mv-lead-white {
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* ファーストビュー直下リード文：全幅・一行表示＋左から右に流れるアニメーション */
+.section-mv-lead-marquee {
+    width: 100%;
+    max-width: none;
+    overflow-x: hidden;
+    text-align: left;
+    padding: 0.15rem 20px 0;
+    box-sizing: border-box;
+}
+.section-mv-lead .section-mv-lead-oneline {
+    font-size: 1.75rem;
+    line-height: 1.6;
+    color: var(--primary-blue);
+}
+.section-mv-lead-oneline {
+    white-space: nowrap;
+    display: inline-block;
+    animation: mv-lead-flow 45s linear infinite;
+}
+@media (min-width: 768px) {
+    .section-mv-lead .section-mv-lead-oneline {
+        font-size: 2rem;
+    }
+}
+@keyframes mv-lead-flow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 /* 最終CTAなど親が青指定でもオレンジを効かせる */
 .cva-heading .worry-lead-orange,
