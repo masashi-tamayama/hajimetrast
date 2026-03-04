@@ -68,22 +68,20 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 0;
+    height: 100%;
     z-index: 0;
     overflow: hidden;
-    /* ページ読み込み時に、上から下へ高さが伸びて表示される */
-    animation: mv-bg-reveal 2.2s ease-out forwards;
 }
 .mv-bg-blue-left {
     left: 0;
-    /* 白に寄らない、薄い水色グラデ（ほんの少しだけ） */
-    background: linear-gradient(to bottom, #7fd1f3 0%, #5fb5df 45%, #2f87c0 100%);
+    /* 白に寄らない、薄い水色グラデ（少し強め） */
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
     clip-path: polygon(0 0, 10% 0, 24% 100%, 0 100%);
 }
 .mv-bg-blue-right {
     left: 0;
-    /* 白に寄らない、薄い水色グラデ（ほんの少しだけ） */
-    background: linear-gradient(to bottom, #7fd1f3 0%, #5fb5df 45%, #2f87c0 100%);
+    /* 白に寄らない、薄い水色グラデ（少し強め） */
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
     clip-path: polygon(90% 0, 100% 0, 100% 100%, 76% 100%);
 }
 .section-mv2 .mv-frame {
@@ -118,7 +116,7 @@ body {
     width: 100%;
     height: 100%;
 }
-.section-mv2 .mv-frame img:not(.mv-person-img) {
+.section-mv2 .mv-frame img:not(.mv-person-img):not(.mv-medal-set-img) {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -126,13 +124,109 @@ body {
     display: block;
 }
 
-@keyframes mv-bg-reveal {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: 100%;
-    }
+/* ファーストビュー左上：メダルセット画像（3枚まとめたPNG） */
+.mv-medal-set-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    padding: 1rem 0 0 0;
+    transform: translateX(-40px); /* さらに左に約10px寄せる */
+    pointer-events: none;
+}
+.mv-medal-set-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 800px;
+    max-height: 520px;
+    object-fit: contain;
+}
+
+/* スマホ専用ファーストビュー（モデルサイト風） */
+.section-mv2-mobile {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding-bottom: 10px; /* 背景の水色台形を少し下まで伸ばす */
+}
+.mv-mobile-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 0;
+    position: relative;
+    z-index: 1; /* 背景の水色台形より前面に表示 */
+}
+.mv-mobile-top .mv-badge-main-mobile {
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+.mv-lead-mobile {
+    margin: 0 0 0.1rem;  /* メダルとの隙間をほぼゼロに */
+    text-align: center;
+}
+.mv-mobile-main {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: -0.6rem;  /* オレンジボックス全体をさらに上へ（約20〜24px） */
+}
+.mv-mobile-features {
+    flex: 1 1 0;
+}
+.mv-mobile-person {
+    flex: 0 0 38%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.mv-mobile-person-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: -10px; /* 背景の下端に人物の足元を合わせるよう下に少しだけオフセット */
+}
+.mv-mobile-medal {
+    margin-top: -0.6rem;      /* 上の余白をさらに食い込ませる */
+    margin-bottom: -0.4rem;   /* 下の余白もさらに詰める */
+    text-align: center;
+}
+.mv-mobile-medal-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* スマホ版ファーストビュー内のオレンジボックスはCTAより一回り小さく＆横書きテキスト */
+.section-mv2-mobile .mv-feature-boxes-mobile {
+    margin-bottom: 0;
+}
+.section-mv2-mobile .mv-feature-boxes-mobile .mv-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+.section-mv2-mobile .feature-card {
+    padding: 6px 8px;
+    min-height: auto;
+    max-width: 260px;
+    margin: 0 auto;
+}
+.section-mv2-mobile .icon-circle {
+    width: 34px;
+    height: 34px;
+    margin-right: 6px;
+}
+.section-mv2-mobile .icon-circle i {
+    font-size: 1.3rem;
+}
+.section-mv2-mobile .card-text {
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
 }
 
 /* ファーストビュー中央コンテンツ（スクショモデルに合わせた文章・アイコン・枠） */
@@ -188,8 +282,8 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .mv-badge-icon {
-    width: 52px;
-    height: 52px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
     background: #fff;
     color: #1e5a8e;
@@ -198,6 +292,11 @@ body {
     justify-content: center;
     margin-right: 14px;
     font-size: 1.2rem;
+}
+.mv-badge-icon-img {
+    display: block;
+    width: 32px;
+    height: auto;
 }
 .mv-badge-icon .fa-house { margin-left: 2px; }
 .mv-badge-bubble {
@@ -384,6 +483,10 @@ body {
     height: 50px;
     fill: #f36c21;
 }
+.icon-circle i {
+    font-size: 2.1rem;
+    color: #f36c21;
+}
 .card-text {
     position: relative;
     z-index: 2;
@@ -434,27 +537,13 @@ body {
 }
 
 @media (max-width: 767px) {
-    .section-mv2 .mv-frame {
-        height: 85vh;
+    /* PC版ファーストビュー非表示・スマホ専用レイアウト表示 */
+    .section-mv2 {
+        display: none;
     }
-    .mv-person-wrap {
-        width: 55%;
-        max-width: none;
-    }
-    .mv-bg-blue-left {
-        clip-path: polygon(0 0, 12% 0, 25% 100%, 0 100%);
-    }
-    .mv-bg-blue-right {
-        clip-path: polygon(88% 0, 100% 0, 100% 100%, 75% 100%);
-    }
-    /* ファーストビュー中央コンテンツ：スマホ */
-    .mv-content {
-        padding: 1rem;
-        align-items: flex-start;
-        padding-top: 2rem;
-    }
-    .mv-content-inner {
-        max-width: 100%;
+    .section-mv2-mobile {
+        display: block;
+        background-color: #fff;
     }
     .card-text {
         white-space: normal;
@@ -463,18 +552,8 @@ body {
     .mv-lead-yamagata .mv-lead-line3 {
         white-space: normal;
     }
-    .mv-badge-row {
-        justify-content: center;
-    }
-    .mv-badge-number {
-        width: 60px;
-        height: 60px;
-        font-size: 0.9rem;
-    }
-    .mv-badge-num { font-size: 0.95rem; }
-    .mv-lead { font-size: clamp(1.25rem, 5vw, 2.2rem); }
-    .mv-feature-grid {
-        grid-template-columns: 1fr;
+    .mv-lead {
+        font-size: clamp(1.25rem, 5vw, 2.2rem);
     }
 }
 
@@ -960,11 +1039,37 @@ body {
     font-weight: 700;
     color: var(--accent-orange);
 }
-/* ファーストビュー直下リード文：白背景・上下余白最小 */
+/* ファーストビュー直下リード文：白背景・上だけ余白ゼロ（ヒーローに密着） */
 .section-mv-lead-white {
     background-color: #fff;
     padding-top: 0;
+}
+/* 二重矢印（区切り） */
+.mv-double-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.mv-double-arrow-svg {
+    width: 220px;
+    height: auto;
+    display: block;
+}
+/* 二重矢印直下CTA：ボタンのみ・上下マージンを詰める */
+.mv-lead-cta {
+    margin: 1rem 0;
+    padding: 0;
+}
+.mv-lead-cta .container {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
     padding-bottom: 0;
+}
+.mv-lead-cta .cva-buttons {
+    margin: 0;
+    padding: 0;
 }
 /* ファーストビュー直下リード文：全幅・一行表示＋左から右に流れるアニメーション */
 .section-mv-lead-marquee {
@@ -980,10 +1085,15 @@ body {
     line-height: 1.6;
     color: var(--primary-blue);
 }
+/* 流れるリード文：同じ文章を2つ並べてシームレスにループさせる */
+.mv-lead-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: mv-lead-flow 45s linear 2s infinite;
+}
 .section-mv-lead-oneline {
     white-space: nowrap;
     display: inline-block;
-    animation: mv-lead-flow 45s linear 3s infinite;
 }
 @media (max-width: 767px) {
     .section-mv-lead .section-mv-lead-oneline {
@@ -997,7 +1107,7 @@ body {
 }
 @keyframes mv-lead-flow {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-50%); }
 }
 /* 最終CTAなど親が青指定でもオレンジを効かせる */
 .cva-heading .worry-lead-orange,
@@ -1668,6 +1778,10 @@ body {
 @media (min-width: 768px) {
     .section { padding-top: 60px; padding-bottom: 60px; }
 }
+/* ファーストビュー直下の流れるリード文だけ、上余白をなくしてヒーローに密着させる */
+.section.section-mv-lead-white {
+    padding-top: 0;
+}
 /* 「このページで、売却を決める必要はありません」セクションの上余白のみ詰める（.section より優先） */
 .section.section-omakase-spacing {
     padding-top: 0rem;
@@ -1938,11 +2052,11 @@ body {
 .p-faq-list li { list-style: none; }
 .p-faq-title {
     margin: 0;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
 }
 .p-faq-title + p {
     margin: 0;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.7;
 }
 .u-bg-white.u-padding-20.u-br-10 {
@@ -1969,10 +2083,10 @@ body {
         margin-bottom: 16px;
     }
     .p-faq-title {
-        font-size: 1rem;
+        font-size: 1.0625rem;
     }
     .p-faq-title + p {
-        font-size: 1rem;
+        font-size: 1.0625rem;
     }
 }
 

@@ -50,18 +50,24 @@
         </div>
     </header>
 
-    <!-- Main Visual：水色三角背景＋中央コンテンツ＋人物を右寄せ -->
+    <!-- Main Visual：水色三角背景＋中央コンテンツ＋人物を右寄せ（PC・タブレット用） -->
     <section class="section-mv2">
         <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
         <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
         <div class="mv-frame">
+            <!-- 左上：メダルセット画像（影付き2） -->
+            <div class="mv-medal-set-wrap" aria-hidden="true">
+                <img src="images/メダルセット影付き2.png" alt="" class="mv-medal-set-img">
+            </div>
             <!-- 中央コンテンツ（スクショモデルに合わせた文章・アイコン・枠） -->
             <div class="mv-content">
                 <div class="mv-content-inner">
-                    <!-- 上部：空き家の買取専門店（中央上） -->
+                    <!-- 上部：空家の買取専門店（中央上） -->
                     <div class="mv-badge-row mv-badge-row-center">
                         <div class="mv-badge-main">
-                            <span class="mv-badge-icon" aria-hidden="true"><i class="fas fa-magnifying-glass"></i><i class="fas fa-house"></i></span>
+                            <span class="mv-badge-icon" aria-hidden="true">
+                                <img src="images/家アイコン４.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
+                            </span>
                             <span class="mv-badge-text">空家・相続のご相談窓口</span>
                         </div>
                     </div>
@@ -83,20 +89,16 @@
                             <!-- 1: どんな状態の空き家でも歓迎 -->
                             <div class="feature-card">
                                 <div class="icon-circle">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-                                    </svg>
+                                    <i class="fas fa-comments" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-text">
                                     無料でお気軽にご相談いただけます
                                 </div>
                             </div>
-                            <!-- 2: 家財道具や不用品はそのままでOK -->
+                            <!-- 2 -->
                             <div class="feature-card">
                                 <div class="icon-circle">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M21,11V15C21,15.55 20.55,16 20,16H18V13.84C18,12.72 17.2,11.75 16.11,11.54C14.77,11.28 13.5,12.29 13.5,13.6V16H10.5V13.6C10.5,12.29 9.23,11.28 7.89,11.54C6.8,11.75 6,12.72 6,13.84V16H4C3.45,16 3,15.55 3,15V11C3,9.34 4.34,8 6,8H18C19.66,8 21,9.34 21,11M23,17V19H1V17H2V11C2,8.79 3.79,7 6,7H18C20.21,7 22,8.79 22,11V17H23Z" />
-                                    </svg>
+                                    <i class="fas fa-user-shield" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-text">
                                     ご相談内容は秘密厳守で対応します
@@ -105,9 +107,7 @@
                             <!-- 3 -->
                             <div class="feature-card">
                                 <div class="icon-circle">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M15,13H9V11H15M12,20A8,8 0 1,1 20,12A8,8 0 0,1 12,20Z" />
-                                    </svg>
+                                    <i class="fas fa-ban" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-text">
                                     無理な営業はありません
@@ -116,12 +116,10 @@
                             <!-- 4: 相続・空家・共有整理対応 -->
                             <div class="feature-card">
                                 <div class="icon-circle">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M3 5H21V7H3V5M3 11H21V13H3V11M3 17H21V19H3V17Z" />
-                                    </svg>
+                                    <i class="fas fa-scale-balanced" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-text">
-                                    相続・空家・共有問題の整理に対応
+                                    相続･空家･共有問題の整理に対応します
                                 </div>
                             </div>
                         </div>
@@ -134,12 +132,133 @@
         </div>
     </section>
 
+    <!-- スマホ専用ファーストビュー（モデルサイト風レイアウト：両サイド水色台形） -->
+    <section class="section-mv2-mobile">
+        <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
+        <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
+        <div class="mv-mobile-inner">
+            <!-- 上に来るブロック：バッジ＋リード文 -->
+            <div class="mv-mobile-top">
+                <div class="mv-badge-main mv-badge-main-mobile">
+                    <span class="mv-badge-icon" aria-hidden="true">
+                        <img src="images/家アイコン４.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
+                    </span>
+                    <span class="mv-badge-text">空家・相続のご相談窓口</span>
+                </div>
+                <p class="mv-lead mv-lead-yamagata mv-lead-mobile">
+                    <span class="mv-lead-head">
+                        <span class="mv-lead-head-line1">
+                            <span class="mv-lead-line1">相続した空家</span>
+                        </span><br>
+                        <span class="mv-lead-head-line2">
+                            <span class="mv-lead-line2">どうすればいいか分からない方へ</span>
+                        </span>
+                    </span><br>
+                    <span class="mv-lead-line3">売る・残す・壊すを決める前に、まずは状況を整理しませんか。</span>
+                </p>
+                <!-- リード文の下：スマホ用メダル画像 -->
+                <div class="mv-mobile-medal">
+                    <img src="images/メダルスマホ用空白カット.png" alt="空家・相続のご相談3つのポイント" class="mv-mobile-medal-img" />
+                </div>
+            </div>
+
+            <!-- その下：左にオレンジボックス・右に人物 -->
+            <div class="mv-mobile-main">
+                <div class="mv-mobile-features">
+                    <div class="mv-feature-boxes mv-feature-boxes-mobile">
+                        <div class="mv-feature-grid">
+                            <!-- 1 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <i class="fas fa-comments" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-text">
+                                    無料でお気軽にご相談いただけます
+                                </div>
+                            </div>
+                            <!-- 2 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-text">
+                                    ご相談内容は秘密厳守で対応します
+                                </div>
+                            </div>
+                            <!-- 3 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <i class="fas fa-ban" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-text">
+                                    無理な営業はありません
+                                </div>
+                            </div>
+                            <!-- 4 -->
+                            <div class="feature-card">
+                                <div class="icon-circle">
+                                    <i class="fas fa-scale-balanced" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-text">
+                                    相続･空家･共有問題の整理に対応します
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mv-mobile-person">
+                    <img src="images/スマホ用人のみ2.png" alt="相続した空家のご相談はお気軽に。" class="mv-mobile-person-img" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ファーストビュー直下：リード文（左から右に流れるアニメーション・全幅） -->
     <div class="section section-mv-lead section-mv-lead-white">
+        <div class="mv-double-arrow" aria-hidden="true">
+            <svg class="mv-double-arrow-svg" viewBox="0 0 160 70" role="presentation" focusable="false">
+                <polyline class="mv-arrow-top" points="10,10 80,40 150,10" fill="none" stroke="#5fb5df" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter" />
+                <polyline class="mv-arrow-bottom" points="10,32 80,62 150,32" fill="none" stroke="#2f87c0" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" />
+            </svg>
+        </div>
+        <div class="mv-lead-cta">
+            <div class="container text-center">
+                <div class="cva-buttons">
+                <a href="#" class="hover-scale block">
+                    <div class="cva-btn cva-btn-orange">
+                        <i class="fa-regular fa-envelope cva-btn-icon"></i>
+                        <div class="cva-btn-text">
+                            <span class="cva-btn-main">空家の状況を整理する</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="hover-scale block">
+                    <div class="cva-btn cva-btn-green">
+                        <i class="fa-brands fa-line cva-btn-icon"></i>
+                        <div class="cva-btn-text">
+                            <span class="cva-btn-label">お友達追加で気軽に</span>
+                            <span class="cva-btn-main">LINEで無料相談</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="tel:0362613418" class="hover-scale block">
+                    <div class="cva-btn cva-btn-tel">
+                        <p class="cva-btn-label text-left">お電話でのお問い合わせ</p>
+                        <p class="cva-btn-tel-num">03-6261-3418</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
         <div class="section-mv-lead-marquee">
-            <p class="section-worry-lead section-mv-lead-oneline mt-0 mb-0">
-                空家の対応は、今すぐ結論を出す必要はありません。片付けや解体が終わっていなくても大丈夫です。<span class="worry-lead-orange">「現況のまま」できる選択肢を一緒に整理</span>し、<span class="worry-lead-orange">負担の少ない道をご提案</span>します。
-            </p>
+            <div class="mv-lead-track">
+                <p class="section-worry-lead section-mv-lead-oneline mt-0 mb-0">
+                    <strong>空家の対応は</strong>、今すぐ結論を出す必要はありません。片付けや解体が終わっていなくても大丈夫です。<span class="worry-lead-orange">「現況のまま」できる選択肢を一緒に整理</span>し、<span class="worry-lead-orange">負担の少ない道をご提案</span>します。
+                </p>
+                <p class="section-worry-lead section-mv-lead-oneline mt-0 mb-0">
+                    <strong>空家の対応は</strong>、今すぐ結論を出す必要はありません。片付けや解体が終わっていなくても大丈夫です。<span class="worry-lead-orange">「現況のまま」できる選択肢を一緒に整理</span>し、<span class="worry-lead-orange">負担の少ない道をご提案</span>します。
+                </p>
+            </div>
         </div>
     </div>
 
@@ -971,6 +1090,7 @@
                         var idx = list.indexOf(el);
                         delayMs = (idx < 0 ? 0 : idx) * (config.delay || 100);
                     }
+                    delayMs += 100; /* 各セクションのふわっと表示を0.1秒遅らせる */
                     setTimeout(function() { el.classList.add('active'); }, delayMs);
                 });
             }, opts);
