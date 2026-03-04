@@ -116,12 +116,45 @@ body {
     width: 100%;
     height: 100%;
 }
-.section-mv2 .mv-frame img:not(.mv-person-img):not(.mv-medal-set-img) {
+.section-mv2 .mv-frame img:not(.mv-person-img):not(.mv-medal-set-img):not(.mv-topright-callout-img) {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center center;
     display: block;
+}
+
+/* ファーストビュー右上空白：他社お断りOK 吹き出し */
+.mv-topright-callout {
+    position: absolute;
+    top: calc(1.5rem - 10px);
+    right: calc(2% + 350px);
+    max-width: 12%;
+    z-index: 4;
+    pointer-events: none;
+}
+.mv-topright-callout-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+/* スマホ：人物から出る吹き出し（section-mv2-mobile 内のみ） */
+.mv-mobile-callout-from-person {
+    position: absolute;
+    left: -8%;
+    top: calc(22% - 50px);
+    z-index: 2;
+    width: 72%;
+    max-width: 160px;
+    pointer-events: none;
+    transform: translateY(-80px);  /* 吹き出しのみ80px上へ（人物・オレンジボックスに影響しない） */
+}
+.mv-mobile-callout-from-person-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* ファーストビュー左上：メダルセット画像（3枚まとめたPNG） */
@@ -170,12 +203,13 @@ body {
     display: flex;
     align-items: flex-end;
     gap: 12px;
-    margin-top: -0.6rem;  /* オレンジボックス全体をさらに上へ（約20〜24px） */
+    margin-top: calc(-0.6rem + 80px);  /* オレンジボックス・人物を下へ（+80px） */
 }
 .mv-mobile-features {
     flex: 1 1 0;
 }
 .mv-mobile-person {
+    position: relative;
     flex: 0 0 38%;
     display: flex;
     align-items: flex-end;
@@ -190,7 +224,7 @@ body {
 }
 .mv-mobile-medal {
     margin-top: -0.6rem;      /* 上の余白をさらに食い込ませる */
-    margin-bottom: -0.4rem;   /* 下の余白もさらに詰める */
+    margin-bottom: -0.4rem;   /* 下の余白を詰める */
     text-align: center;
 }
 .mv-mobile-medal-img {

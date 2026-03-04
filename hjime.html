@@ -55,6 +55,10 @@
         <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
         <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
         <div class="mv-frame">
+            <!-- 右上空白：他社お断りOK 吹き出し -->
+            <div class="mv-topright-callout" aria-hidden="true">
+                <img src="images/他社お断りの 空き家でもOK！.png" alt="他社お断りの空き家でもOK！" class="mv-topright-callout-img" />
+            </div>
             <!-- 左上：メダルセット画像（影付き2） -->
             <div class="mv-medal-set-wrap" aria-hidden="true">
                 <img src="images/メダルセット影付き2.png" alt="" class="mv-medal-set-img">
@@ -207,6 +211,10 @@
                     </div>
                 </div>
                 <div class="mv-mobile-person">
+                    <!-- 人物から出る吹き出し（スマホのみ） -->
+                    <div class="mv-mobile-callout-from-person" aria-hidden="true">
+                        <img src="images/他社お断りの 空き家でもOK！.png" alt="他社お断りの空き家でもOK！" class="mv-mobile-callout-from-person-img" />
+                    </div>
                     <img src="images/スマホ用人のみ2.png" alt="相続した空家のご相談はお気軽に。" class="mv-mobile-person-img" />
                 </div>
             </div>
@@ -1090,7 +1098,7 @@
                         var idx = list.indexOf(el);
                         delayMs = (idx < 0 ? 0 : idx) * (config.delay || 100);
                     }
-                    delayMs += 100; /* 各セクションのふわっと表示を0.1秒遅らせる */
+                    delayMs += 200; /* 各セクションのふわっと表示を0.2秒遅らせる */
                     setTimeout(function() { el.classList.add('active'); }, delayMs);
                 });
             }, opts);
