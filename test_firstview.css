@@ -1,0 +1,781 @@
+/* リセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+/* ===================================
+   ヘッダー
+   =================================== */
+
+/* ===================================
+   スマホ専用ファーストビュー（本番環境）
+   =================================== */
+.section-mv2-mobile {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding-bottom: 10px;
+}
+
+/* 台形水色背景（スマホ版） */
+.section-mv2-mobile .mv-bg-blue {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.section-mv2-mobile .mv-bg-blue-left {
+    left: 0;
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+    clip-path: polygon(0 0, 10% 0, 24% 100%, 0 100%);
+}
+
+.section-mv2-mobile .mv-bg-blue-right {
+    left: 0;
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+    clip-path: polygon(90% 0, 100% 0, 100% 100%, 76% 100%);
+}
+
+.mv-mobile-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.mv-mobile-top .mv-badge-main {
+    margin-bottom: 0.75rem;
+}
+
+.mv-lead-mobile {
+    margin: 0 0 0.1rem;
+    text-align: center;
+}
+
+.mv-mobile-main {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: calc(-0.6rem + 100px);
+}
+
+.mv-mobile-features {
+    flex: 1 1 0;
+}
+
+.mv-mobile-person {
+    position: relative;
+    flex: 0 0 38%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.mv-mobile-person-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: -10px;
+}
+
+/* PC版：スマホ専用レイアウト要素を非表示 */
+.mv-mobile-medal,
+.mv-mobile-person,
+.mv-mobile-main,
+.mv-mobile-features,
+.mv-feature-boxes-mobile {
+    display: none;
+}
+
+/* PC版：.mv-mobile-topは表示（バッジ+リード文を含むため） */
+.mv-mobile-top {
+    display: block;
+}
+
+/* PC版：PC用オレンジボックスを表示 */
+.mv-feature-boxes-pc {
+    display: block;
+}
+
+/* PC版：改行を非表示（1行表示） */
+.nopc {
+    display: none;
+}
+
+.mv-mobile-medal {
+    margin-top: -0.6rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.mv-mobile-medal-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.mv-mobile-callout-from-person {
+    position: absolute;
+    left: -8%;
+    top: calc(22% - 50px);
+    z-index: 2;
+    width: 72%;
+    max-width: 160px;
+    pointer-events: none;
+    transform: translateY(-100px);
+}
+
+.mv-mobile-callout-from-person-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* スマホ版オレンジボックス */
+.section-mv2-mobile .mv-feature-boxes-mobile {
+    margin-bottom: 0;
+}
+
+.section-mv2-mobile .mv-feature-boxes-mobile .mv-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.section-mv2-mobile .feature-card {
+    padding: 6px 8px;
+    min-height: auto;
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+.section-mv2-mobile .icon-circle {
+    width: 34px;
+    height: 34px;
+    margin-right: 6px;
+}
+
+.section-mv2-mobile .icon-circle i {
+    font-size: 1.3rem;
+}
+
+.section-mv2-mobile .card-text {
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+}
+
+/* スマホ用feature-card（汎用） */
+.feature-card {
+    position: relative;
+    background-color: #f36c21;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+    border: 2px solid #fff;
+    outline: 2px solid #f36c21;
+    border-radius: 10px;
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+    overflow: hidden;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 70%, rgba(255,255,255,0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 clamp(25px, 4vw, 35px) clamp(25px, 4vw, 35px);
+    border-color: transparent transparent rgba(255, 165, 90, 0.4) transparent;
+    z-index: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+}
+
+.icon-circle {
+    width: clamp(36px, 3.5vw, 52px);
+    height: clamp(36px, 3.5vw, 52px);
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f36c21;
+    font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 2;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: clamp(0.4rem, 1vw, 0.6rem);
+}
+
+.card-text {
+    text-align: left;
+    font-weight: 700;
+    font-size: clamp(0.7rem, 1vw, 0.95rem);
+    color: #fff;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    z-index: 2;
+    position: relative;
+    flex: 1;
+}
+
+/* ===================================
+   スマホ対応（768px以下）
+   =================================== */
+@media (max-width: 767px) {
+    /* ヘッダー：ナビゲーション非表示 */
+    /* メインビュー：スマホ用レイアウト */
+    .test-mv {
+        display: block;
+        min-height: auto;
+        padding: 1.5rem 1rem 0;
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* PC用要素を非表示 */
+    .test-mv::after,
+    .test-medals {
+        display: none;
+    }
+    
+    /* 水色背景：スマホでも表示 */
+    .test-bg-side {
+        display: block;
+    }
+    
+    .test-mv-inner {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* PC用オレンジボックスを非表示 */
+    .mv-feature-boxes-pc {
+        display: none;
+    }
+    
+    /* スマホ専用レイアウト要素を表示 */
+    .mv-mobile-top {
+        display: block;
+    }
+    
+    .mv-mobile-medal {
+        display: block;
+        margin-bottom: 0;
+    }
+    
+    .mv-mobile-main {
+        display: flex;
+        margin-top: 0;
+    }
+    
+    .mv-mobile-features {
+        display: block;
+        margin-left: -160px;
+    }
+    
+    .mv-feature-boxes-mobile {
+        display: block;
+    }
+    
+    .mv-mobile-person {
+        display: flex;
+        flex: 0 0 38%;
+        margin-top: 30px;
+        margin-right: -100px;
+    }
+    
+    .mv-mobile-person-img {
+        width: 200%;
+        margin-bottom: -40px;
+    }
+    
+    /* スマホ版：改行を表示（2行表示） */
+    .nopc {
+        display: inline;
+    }
+    
+    /* バッジ */
+    .mv-badge-main {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        padding: clamp(0.6rem, 2.5vw, 0.8rem) clamp(1rem, 4.5vw, 1.2rem) clamp(0.6rem, 2.5vw, 0.8rem) clamp(0.6rem, 2.5vw, 0.8rem);
+    }
+    
+    .mv-badge-main .mv-badge-icon {
+        width: clamp(2.5rem, 10vw, 3rem);
+        height: clamp(2.5rem, 10vw, 3rem);
+        margin-right: clamp(0.5rem, 2vw, 0.7rem);
+    }
+    
+    .mv-badge-main .mv-badge-icon-img {
+        width: clamp(2rem, 7vw, 2.5rem) !important;
+    }
+    
+    .mv-mobile-top .mv-badge-main {
+        margin-bottom: 0.75rem;
+    }
+    
+    /* リード文 */
+    .mv-lead {
+        font-size: clamp(1.25rem, 5vw, 2.2rem);
+        margin: 0 0 0.1rem;
+        text-align: center;
+    }
+    
+    .mv-lead-yamagata {
+        margin-top: 0.75rem;
+    }
+    
+    .mv-lead-head {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+    }
+    
+    .mv-lead-head br {
+        display: none !important;
+        line-height: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .mv-lead-head-line1,
+    .mv-lead-head-line2 {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        line-height: 1.2;
+        width: 100%;
+    }
+    
+    .mv-lead-head-line1 {
+        margin-bottom: 0;
+    }
+    
+    .mv-lead-head-line2 {
+        margin-top: 0;
+    }
+    
+    .mv-lead-line1,
+    .mv-lead-line2 {
+        font-size: clamp(1.6rem, 6.5vw, 2.5rem);
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+    }
+    
+    .mv-lead-line1 {
+        color: #003d70;
+    }
+    
+    .mv-lead-line2 {
+        color: #ff8c00;
+        margin-left: -40px;
+    }
+    
+    .mv-lead-line1::after,
+    .mv-lead-line2::after {
+        display: none;
+    }
+    
+    .mv-lead-line3 {
+        font-size: clamp(0.95rem, 4vw, 1.6rem);
+        color: #4fc3f7;
+        margin-top: clamp(0.6rem, 2vh, 1rem);
+        white-space: normal;
+        transform: translateX(0);
+    }
+    
+    .mv-lead-yamagata .mv-lead-line3 {
+        white-space: normal;
+    }
+    
+    /* オレンジボックス：縦並び */
+    .mv-feature-boxes-mobile {
+        margin-bottom: 0;
+    }
+    
+    .mv-feature-boxes-mobile .mv-feature-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .test-mv .feature-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 6px 12px;
+        min-height: 60px;
+        max-width: 230px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: visible;
+        gap: 8px;
+    }
+    
+    .test-mv .icon-circle {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+    }
+    
+    .test-mv .icon-circle i {
+        font-size: 1.3rem;
+    }
+    
+    .test-mv .card-text {
+        font-size: 13px;
+        line-height: 1.4;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: anywhere;
+        flex: 1;
+    }
+}
+
+
+/* ===================================
+   大枠テスト - 高さ800px、自然に縮小
+   =================================== */
+.test-mv {
+    position: relative;
+    
+    /* 本番同様の白背景 */
+    background-color: #ffffff;
+    
+    /* 1920pxで800px、画面縮小時は自然に比例縮小 */
+    min-height: clamp(380px, 41.667vw, 800px);
+    /* 41.667vw = 1920pxで800px、画面縮小時は自然に比例縮小 */
+    
+    /* パディングも画面幅に応じて調整 */
+    padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 2vw, 3rem);
+    
+    /* 中央寄せ（横のみ、縦は上寄せ） */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
+    overflow: hidden;
+}
+
+/* 本番同様の台形水色背景（左右） */
+.test-bg-side {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.test-bg-left {
+    left: 0;
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+    clip-path: polygon(0 0, 10% 0, 24% 100%, 0 100%);
+}
+
+.test-bg-right {
+    right: 0;
+    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+    clip-path: polygon(90% 0, 100% 0, 100% 100%, 76% 100%);
+}
+
+/* 人物画像を右側に背景として配置 */
+.test-mv::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /* 本番と同じ：横幅45% */
+    width: clamp(400px, 45%, 860px);
+    /* 大枠の高さに追従（100%）、ただし最大85vhで制限 */
+    height: 100%;
+    max-height: 85vh;
+    background-image: url('images/人物吹き出し.png');
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* メダル（左上）- CSSで背景画像として配置 */
+.test-medals {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: clamp(300px, 38vw, 720px);
+    height: clamp(150px, 19vw, 360px);
+    background-image: url('images/メダルセット影付き2.png');
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 中央コンテンツ */
+.test-mv-inner {
+    position: relative;
+    z-index: 2;
+    /* 幅も画面に応じて縮小 */
+    max-width: clamp(300px, 60vw, 1000px);
+    width: 100%;
+    text-align: center;
+    /* 上に配置 */
+    margin-top: -20px;
+}
+
+/* ===================================
+   バッジ（空家・相続のご相談窓口）
+   =================================== */
+.mv-badge-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(0.8rem, 1.8vh, 1.3rem);
+}
+
+.mv-badge-row-center {
+    justify-content: center;
+}
+
+.mv-badge-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: #1e5a8e;
+    color: #fff;
+    padding: clamp(0.7rem, 0.9vw, 0.875rem) clamp(1.1rem, 1.4vw, 1.375rem) clamp(0.7rem, 0.9vw, 0.875rem) clamp(0.7rem, 0.9vw, 0.875rem);
+    border-radius: 999px;
+    border: 3px solid #fff;
+    font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.mv-badge-icon {
+    width: clamp(2.9rem, 3.8vw, 3.625rem);
+    height: clamp(2.9rem, 3.8vw, 3.625rem);
+    border-radius: 50%;
+    background: #fff;
+    color: #1e5a8e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: clamp(0.7rem, 0.9vw, 0.875rem);
+    flex-shrink: 0;
+}
+
+.mv-badge-icon-img {
+    display: block;
+    width: clamp(2rem, 2.5vw, 2.5rem) !important;
+    height: auto !important;
+}
+
+/* ===================================
+   リード文（山形バランス）
+   =================================== */
+.mv-lead-yamagata {
+    text-align: center;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
+    margin-bottom: clamp(1rem, 2.5vh, 2rem);
+}
+
+.mv-lead-head {
+    display: inline-block;
+}
+
+.mv-lead-line1 {
+    font-size: clamp(1.6rem, 3.5vw, 4.2rem);
+    color: #003d70;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-bottom: clamp(0.3rem, 0.8vh, 0.5rem);
+    position: relative;
+    padding-bottom: 0.15em;
+}
+
+.mv-lead-line1::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -webkit-linear-gradient(to right, rgb(255, 140, 0), transparent);
+    background: linear-gradient(to right, rgb(255, 140, 0), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.mv-lead-line2 {
+    font-size: clamp(1.6rem, 3.5vw, 4.2rem);
+    color: #ff8c00;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    padding-bottom: 0.15em;
+}
+
+.mv-lead-line2::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: -webkit-linear-gradient(to right, rgb(255, 140, 0), transparent);
+    background: linear-gradient(to right, rgb(255, 140, 0), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.mv-lead-line3 {
+    font-size: clamp(1rem, 2vw, 2.4rem);
+    font-weight: 700;
+    color: #4fc3f7;
+    display: block;
+    text-align: center;
+    margin-top: clamp(0.5rem, 1.5vh, 1rem);
+    white-space: nowrap;
+    transform: translateX(clamp(-15px, -0.5vw, 0px));
+}
+
+/* ===================================
+   オレンジボックス（4つの特徴）
+   =================================== */
+.mv-feature-boxes {
+    width: 100%;
+}
+
+.mv-feature-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.feature-card-horizontal {
+    position: relative;
+    background-color: #f36c21;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+    border: 2px solid #fff;
+    outline: 2px solid #f36c21;
+    border-radius: 12px;
+    padding: clamp(0.9rem, 1.5vw, 1.1rem) clamp(1rem, 1.8vw, 1.3rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 0.9rem);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+    width: 100%;
+    min-height: clamp(85px, 12vh, 105px);
+    overflow: hidden;
+}
+
+.feature-card-horizontal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 70%, rgba(255,255,255,0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.feature-card-horizontal::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 clamp(35px, 5vw, 50px) clamp(35px, 5vw, 50px);
+    border-color: transparent transparent rgba(255, 165, 90, 0.4) transparent;
+    z-index: 1;
+}
+
+.feature-card-horizontal:hover {
+    transform: translateY(-2px);
+}
+
+.icon-circle-horizontal {
+    width: clamp(48px, 3.8vw, 60px);
+    height: clamp(48px, 3.8vw, 60px);
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f36c21;
+    font-size: clamp(1.3rem, 2.1vw, 1.8rem);
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 2;
+    position: relative;
+}
+
+.card-text-horizontal {
+    text-align: left;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 1.5vw, 1.8rem);
+    color: #fff;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    flex: 1;
+    z-index: 2;
+    position: relative;
+}
