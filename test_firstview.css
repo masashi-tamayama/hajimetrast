@@ -257,6 +257,69 @@ body {
 }
 
 /* ===================================
+   タブレット・中間サイズ対応（1024px以下）
+   =================================== */
+@media (max-width: 1024px) {
+    /* 人物画像のサイズを縮小 */
+    .test-mv::after {
+        width: clamp(320px, 35%, 450px) !important;
+        max-height: 70vh !important;
+    }
+    
+    /* メダルのサイズも少し縮小 */
+    .test-medals {
+        width: clamp(250px, 32vw, 500px) !important;
+        height: clamp(125px, 16vw, 250px) !important;
+        top: 20px !important;
+    }
+    
+    /* コンテンツエリアの幅を縮小 */
+    .test-mv-inner {
+        max-width: clamp(280px, 50vw, 700px) !important;
+    }
+    
+    /* リード文のフォントサイズを微調整 */
+    .mv-lead-line1,
+    .mv-lead-line2 {
+        font-size: clamp(1.4rem, 3vw, 3.5rem) !important;
+    }
+    
+    .mv-lead-line3 {
+        font-size: clamp(0.9rem, 1.8vw, 2rem) !important;
+    }
+    
+    /* オレンジボックスの間隔を調整 */
+    .mv-feature-row {
+        gap: clamp(0.5rem, 1vw, 0.8rem);
+    }
+    
+    .feature-card-horizontal {
+        padding: clamp(0.7rem, 1.2vw, 0.9rem) clamp(0.8rem, 1.5vw, 1.1rem);
+        min-height: clamp(75px, 10vh, 90px);
+    }
+    
+    .icon-circle-horizontal {
+        width: clamp(32px, 3vw, 42px);
+        height: clamp(32px, 3vw, 42px);
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+    }
+    
+    .card-text-horizontal {
+        font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+    }
+}
+
+/* ===================================
+   800px以下専用（人物を右に移動）
+   =================================== */
+@media (max-width: 800px) {
+    /* 人物画像を右に移動 */
+    .test-mv::after {
+        right: -90px !important;
+    }
+}
+
+/* ===================================
    スマホ対応（768px以下）
    =================================== */
 @media (max-width: 767px) {
