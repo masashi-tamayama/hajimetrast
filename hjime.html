@@ -28,11 +28,10 @@
         </div>
     </header>
 
-    <!-- Main Visual：テスト用と同じ大枠構造（移行準備） -->
+    <!-- Main Visual：水色三角背景＋中央コンテンツ（PC・タブレット用） -->
     <section class="section-mv2 nosp">
-        <!-- 両サイド水色背景（テスト用と同じ） -->
-        <div class="mv-bg-side mv-bg-left"></div>
-        <div class="mv-bg-side mv-bg-right"></div>
+        <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
+        <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
         <!-- メダル（左上）- PC・タブレット用 -->
         <div class="mv-medals"></div>
         <!-- 中央コンテンツ枠 -->
@@ -43,7 +42,7 @@
                     <div class="mv-badge-row mv-badge-row-center">
                         <div class="mv-badge-main">
                             <span class="mv-badge-icon" aria-hidden="true">
-                                <img src="images/家アイコン４.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
+                                <img src="images/家カーキ.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
                             </span>
                             <span class="mv-badge-text">空家・相続のご相談窓口</span>
                         </div>
@@ -95,15 +94,15 @@
 
     <!-- スマホ専用ファーストビュー（バッジ＋リード＋メダル＋オレンジボックス＋人物） -->
     <section class="section-mv2-mobile">
-        <div class="mv-bg-side mv-bg-left"></div>
-        <div class="mv-bg-side mv-bg-right"></div>
+        <div class="mv-bg-blue mv-bg-blue-left" aria-hidden="true"></div>
+        <div class="mv-bg-blue mv-bg-blue-right" aria-hidden="true"></div>
         <div class="mv-mobile-inner">
             <!-- バッジ＋リード文＋メダル -->
             <div class="mv-mobile-top">
                 <div class="mv-badge-row mv-badge-row-center">
                     <div class="mv-badge-main">
                         <span class="mv-badge-icon" aria-hidden="true">
-                            <img src="images/家アイコン４.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
+                            <img src="images/家カーキ.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
                         </span>
                         <span class="mv-badge-text">空家・相続のご相談窓口</span>
                     </div>
@@ -148,7 +147,7 @@
                     </div>
                 </div>
                 <div class="mv-mobile-person">
-                    <img src="images/人物吹き出し2.png" alt="他社お断りの空き家でもOK！" class="mv-mobile-person-img" />
+                    <img src="images/人物吹き出し白3.png" alt="他社お断りの空き家でもOK！" class="mv-mobile-person-img" />
                 </div>
             </div>
         </div>
@@ -158,8 +157,8 @@
     <div class="section section-mv-lead section-mv-lead-white">
         <div class="mv-double-arrow" aria-hidden="true">
             <svg class="mv-double-arrow-svg" viewBox="0 0 160 70" role="presentation" focusable="false">
-                <polyline class="mv-arrow-top" points="10,10 80,40 150,10" fill="none" stroke="#5fb5df" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter" />
-                <polyline class="mv-arrow-bottom" points="10,32 80,62 150,32" fill="none" stroke="#2f87c0" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" />
+                <polyline class="mv-arrow-top" points="10,10 80,40 150,10" fill="none" stroke="#E8E0B5" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter" />
+                <polyline class="mv-arrow-bottom" points="10,32 80,62 150,32" fill="none" stroke="#9A8B40" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" />
             </svg>
         </div>
         <div class="mv-lead-cta">
@@ -315,9 +314,9 @@
     <section class="section section-akiya-risk py-16 mb-20">
         <div class="container max-w-6xl mx-auto px-4">
             <div class="text-center mb-12 reveal risk-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4 leading-snug">
-                    空家は「そのままでも大丈夫」に見えて、<br class="hidden md:block">
-                    <span class="text-orange-500">負担だけが静かに増えていきます</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-snug">
+                    <span class="text-black">空家は「そのままでも大丈夫」に見えて、</span><br class="hidden md:block">
+                    <span class="risk-h2-khaki">負担だけが静かに増えていきます</span>
                 </h2>
                 <p class="text-gray-700 font-medium text-base md:text-lg">空家は住んでいなくても、税金や維持コストが積み重なり、放置するほどリスクが大きくなります。</p>
             </div>
@@ -325,8 +324,8 @@
             <!-- カード3枚: 文章の内容を要約 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                 <!-- リスク1: 税金と維持コスト -->
-                <div class="reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
-                    <div class="absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">1</div>
+                <div class="risk-card reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
+                    <div class="risk-number-badge absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">1</div>
                     <div class="w-40 h-40 rounded-full bg-blue-50 flex items-center justify-center mb-6 mt-4">
                         <i class="fa-solid fa-hand-holding-dollar text-blue-600 text-6xl md:text-7xl" aria-hidden="true"></i>
                     </div>
@@ -334,8 +333,8 @@
                     <p class="text-gray-600 text-base leading-relaxed">固定資産税・都市計画税に加え、草刈りや清掃、管理委託費など、目に見えない維持コストが毎年積み重なっていきます。</p>
                 </div>
                 <!-- リスク2: 劣化の速さ -->
-                <div class="reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
-                    <div class="absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">2</div>
+                <div class="risk-card reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
+                    <div class="risk-number-badge absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">2</div>
                     <div class="w-40 h-40 rounded-full bg-blue-50 flex items-center justify-center mb-6 mt-4">
                         <i class="fa-solid fa-house-chimney-crack text-blue-600 text-6xl md:text-7xl" aria-hidden="true"></i>
                     </div>
@@ -343,8 +342,8 @@
                     <p class="text-gray-600 text-base leading-relaxed">湿気、カビ、シロアリ、雨漏り…。人が住まない家ほど痛みやすく、放置すればするほど資産としての価値が損なわれていきます。</p>
                 </div>
                 <!-- リスク3: 選択肢の減少 -->
-                <div class="reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
-                    <div class="absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">3</div>
+                <div class="risk-card reveal risk-reveal bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-8 relative">
+                    <div class="risk-number-badge absolute top-0 left-0 bg-[#f37021] text-white w-20 h-20 flex items-center justify-center text-4xl italic font-bold">3</div>
                     <div class="w-40 h-40 rounded-full bg-blue-50 flex items-center justify-center mb-6 mt-4">
                         <i class="fa-solid fa-chart-line text-blue-600 text-6xl md:text-7xl" aria-hidden="true"></i>
                     </div>
@@ -354,19 +353,19 @@
             </div>
 
             <!-- 警告・提案エリア -->
-            <div class="reveal risk-reveal bg-white rounded-xl shadow-md p-6 md:p-10 border border-gray-100">
+            <div class="risk-warning-card reveal risk-reveal bg-white rounded-xl shadow-md p-6 md:p-10 border border-gray-100">
                 <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
-                    <div class="flex-shrink-0">
-                        <i class="fa-solid fa-hourglass-half text-blue-600 text-6xl md:text-7xl" aria-hidden="true"></i>
+                    <div class="flex-shrink-0 risk-hourglass-wrap">
+                        <img src="images/砂時計のフリーアイコン.png" alt="砂時計" class="risk-hourglass-img" />
                     </div>
                     <p class="text-gray-800 text-lg md:text-xl leading-relaxed">
                         空家は時間が経つほど、費用・手間・不安が増えやすい不動産です。状態が悪化して手遅れになる前に、今の状況を客観的に把握することが大切です。
                     </p>
                 </div>
-                <div class="bg-blue-900 rounded-lg p-8 text-center shadow-inner">
+                <div class="risk-warning-cta bg-blue-900 rounded-lg p-8 text-center shadow-inner">
                     <div class="flex flex-col items-center">
                         <h4 class="text-white text-2xl md:text-3xl font-bold mb-4">
-                            まずは、<span class="text-orange-400 font-extrabold italic text-3xl md:text-4xl">"決断"ではなく"整理"</span>を先に行うことが重要です。
+                            まずは、<span class="text-orange-400 font-extrabold text-3xl md:text-4xl">決断ではなく整理</span>を先に行うことが重要です。
                         </h4>
                         <p class="text-blue-100 text-base md:text-lg leading-relaxed max-w-2xl">
                             将来どうするかを決める前に、まずは現在の物件価値やリスクを整理しませんか？あなたの不動産の「これから」を一緒に考えます。
@@ -646,7 +645,7 @@
     <section class="section section-step bg-akiya-blue pt-0 pb-16">
         <h2 class="section-title-bg step-title mb-12 md:mb-16 reveal step-reveal">ご相談の流れ</h2>
         <div class="container">
-            <p class="step-lead text-center font-bold text-akiya-blue mb-10 md:mb-12 reveal step-reveal">売却判断は<span class="step-tit-05-orange">最後でOK</span>！</p>
+            <p class="step-lead text-center font-bold text-akiya-blue mb-10 md:mb-12 reveal step-reveal">売却判断は<span class="step-tit-05-orange">最後でOK！</span></p>
 
             <ul class="step-list grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
                 <li class="step-item reveal step-reveal">
@@ -761,7 +760,7 @@
     <!-- 最終CTA（クロージング） -->
     <section class="cva-section-light cva-section-final py-12">
         <div class="container text-center">
-            <h2 class="cva-heading mb-2">空家のことで、<span class="worry-lead-orange">これ以上ひとりで悩まなくて大丈夫</span>です</h2>
+            <h2 class="cva-heading mb-2"><span class="cva-heading-black">空家のことで、</span><span class="worry-lead-orange">これ以上ひとりで悩まなくて大丈夫</span><span class="cva-heading-black">です</span></h2>
             <p class="cva-sub cva-sub-lg mb-8">空家は<span class="worry-lead-orange">「決断」より先に「整理」をすること</span>で、選択肢が増え、負担も軽くなります。売るかどうかは、整理してから決めれば問題ありません。<br>まずは、<span class="worry-lead-orange">現況と選択肢を確認するところ</span>から始めませんか。</p>
             <div class="cva-buttons">
                 <a href="#" class="hover-scale block">

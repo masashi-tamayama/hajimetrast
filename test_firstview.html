@@ -5,141 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大枠縮小テスト - シンプル版</title>
     <link rel="stylesheet" href="test_firstview.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <section class="test-mv">
-        <!-- 両サイド水色背景 -->
-        <div class="test-bg-side test-bg-left"></div>
-        <div class="test-bg-side test-bg-right"></div>
-        
-        <!-- メダル（左上）- CSSで背景表示 -->
-        <div class="test-medals"></div>
-        
-        <div class="test-mv-inner">
-            <!-- 上に来るブロック：バッジ＋リード文＋メダル（スマホ用） -->
-            <div class="mv-mobile-top">
-                <!-- 上部：空家・相続のご相談窓口（中央上） -->
-                <div class="mv-badge-row mv-badge-row-center">
-                    <div class="mv-badge-main">
-                        <span class="mv-badge-icon" aria-hidden="true">
-                            <img src="images/家アイコン４.png" alt="" class="mv-badge-icon-img" style="width: 40px; height: auto;">
-                        </span>
-                        <span class="mv-badge-text">空家・相続のご相談窓口</span>
-                    </div>
-                </div>
-                <!-- リード文（山形バランス） -->
-                <p class="mv-lead mv-lead-yamagata">
-                    <span class="mv-lead-head">
-                        <span class="mv-lead-head-line1">
-                            <span class="mv-lead-line1">相続した空家</span>
-                        </span><br>
-                        <span class="mv-lead-head-line2">
-                            <span class="mv-lead-line2">どうすればいいか分からない方へ</span>
-                        </span>
-                    </span><br>
-                    <span class="mv-lead-line3">売る･残す･壊すを決める前に、<br class="nopc">まずは状況を整理しませんか</span>
-                </p>
-                <!-- リード文の下：スマホ用メダル画像 -->
-                <div class="mv-mobile-medal">
-                    <img src="images/メダルスマホ用空白カット.png" alt="空家・相続のご相談3つのポイント" class="mv-mobile-medal-img" />
-                </div>
-            </div>
-            
-            <!-- 4つの特徴ボックス（オレンジカード・横並び）- PC用 -->
-            <div class="mv-feature-boxes mv-feature-boxes-pc">
-                <div class="mv-feature-row">
-                    <!-- 1 -->
-                    <div class="feature-card-horizontal">
-                        <div class="icon-circle-horizontal">
-                            <i class="fas fa-comments" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-text-horizontal">
-                            無料でお気軽にご相談いただけます
-                        </div>
-                    </div>
-                    <!-- 2 -->
-                    <div class="feature-card-horizontal">
-                        <div class="icon-circle-horizontal">
-                            <i class="fas fa-user-shield" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-text-horizontal">
-                            ご相談内容は秘密厳守で対応します
-                        </div>
-                    </div>
-                    <!-- 3 -->
-                    <div class="feature-card-horizontal">
-                        <div class="icon-circle-horizontal">
-                            <i class="fas fa-ban" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-text-horizontal">
-                            無理な営業はありません
-                        </div>
-                    </div>
-                    <!-- 4 -->
-                    <div class="feature-card-horizontal">
-                        <div class="icon-circle-horizontal">
-                            <i class="fas fa-scale-balanced" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-text-horizontal">
-                            相続･空家･共有問題の整理に対応します
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- スマホ用：オレンジボックスと人物の横並びレイアウト -->
-            <div class="mv-mobile-main">
-                <div class="mv-mobile-features">
-                    <!-- 4つの特徴ボックス（オレンジカード・縦並び）- スマホ用 -->
-                    <div class="mv-feature-boxes mv-feature-boxes-mobile">
-                        <div class="mv-feature-grid">
-                            <!-- 1 -->
-                            <div class="feature-card">
-                                <div class="icon-circle">
-                                    <i class="fas fa-comments" aria-hidden="true"></i>
-                                </div>
-                                <div class="card-text">
-                                    無料でお気軽にご相談いただけます
-                                </div>
-                            </div>
-                            <!-- 2 -->
-                            <div class="feature-card">
-                                <div class="icon-circle">
-                                    <i class="fas fa-user-shield" aria-hidden="true"></i>
-                                </div>
-                                <div class="card-text">
-                                    ご相談内容は秘密厳守で対応します
-                                </div>
-                            </div>
-                            <!-- 3 -->
-                            <div class="feature-card">
-                                <div class="icon-circle">
-                                    <i class="fas fa-ban" aria-hidden="true"></i>
-                                </div>
-                                <div class="card-text">
-                                    無理な営業はありません
-                                </div>
-                            </div>
-                            <!-- 4 -->
-                            <div class="feature-card">
-                                <div class="icon-circle">
-                                    <i class="fas fa-scale-balanced" aria-hidden="true"></i>
-                                </div>
-                                <div class="card-text">
-                                    相続･空家･共有問題の整理に対応します
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- スマホ用：人物画像と吹き出し -->
-                <div class="mv-mobile-person">
-                    <img src="images/人物吹き出し.png" alt="相続した空家のご相談はお気軽に。" class="mv-mobile-person-img" />
-                </div>
+    <!-- ヘッダー -->
+    <header class="test-header">
+        <div class="test-header-inner">
+            <div class="test-logo">ロゴ</div>
+            <nav class="test-nav">
+                <a href="#" class="test-nav-link">選ばれる理由</a>
+                <a href="#" class="test-nav-link">買取事例</a>
+                <a href="#" class="test-nav-link">ご利用の流れ</a>
+                <a href="#" class="test-nav-link">対応エリア</a>
+            </nav>
+            <div class="test-header-cta">
+                <div class="test-tel">0120-50-4891</div>
             </div>
         </div>
+    </header>
+    
+    <section class="test-mv">
+        <div class="test-mv-inner">
+            <p class="test-text">テキストサンプル</p>
+        </div>
     </section>
+    
+    <div class="test-info">
+        <p>画面幅: <span id="screenWidth"></span>px</p>
+        <p>大枠（青い背景）が自然に縮小するか確認</p>
+    </div>
+    
+    <script>
+        function updateWidth() {
+            document.getElementById('screenWidth').textContent = window.innerWidth;
+        }
+        window.addEventListener('resize', updateWidth);
+        updateWidth();
+    </script>
 </body>
 </html>

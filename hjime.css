@@ -4,9 +4,18 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
+/* ============================================
+   カラーパレット（スクショ参考） - 代表色
+   黒        : #111111
+   カーキ    :  #D3C466
+   グレー緑  : #d9dfd3
+   文字白    : #ffffff
+   ※ 今後の背景色・文字色変更時に使用
+   ============================================ */
 :root {
     --primary-blue: #0365b2;
-    --light-blue-bg: #f0f7ff;
+    --light-blue-bg: #F2EFD5;
     --accent-red: #e60012;
     --accent-orange: #f48024;
     --text-black: #333;
@@ -29,7 +38,7 @@ body {
 }
 
 .bg-akiya-blue { background-color: var(--light-blue-bg); }
-.text-akiya-blue { color: var(--primary-blue); }
+.text-akiya-blue { color: #000000; }
 
 /* 共通ボタンアニメーション */
 .hover-scale { transition: transform 0.2s; }
@@ -37,7 +46,7 @@ body {
 
 /* セクションタイトル */
 .section-title-bg {
-    background-color: var(--primary-blue);
+    background-color: #D3C466;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -64,11 +73,15 @@ body {
     .nopc { display: block !important; }
 }
 
-/* PC・タブレット用ファーストビュー大枠（テスト用と同じ設定） */
+/* PC・タブレット用ファーストビュー大枠（背景画像＋濃いカーキ三角） */
 .section-mv2 {
     position: relative;
     width: 100%;
     background-color: #ffffff;
+    background-image: url('images/背景緑6.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: clamp(380px, 41.667vw, 800px);
     padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 2vw, 3rem);
     display: flex;
@@ -77,25 +90,26 @@ body {
     overflow: hidden;
 }
 
-/* 台形水色背景（左右・テスト用と同じ） */
-.mv-bg-side {
+/* 水色三角背景（PC・スマホ共通） */
+.mv-bg-blue {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none;
+    overflow: hidden;
 }
 
-.mv-bg-left {
+.mv-bg-blue-left {
     left: 0;
-    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+    background: linear-gradient(to bottom, #C4B55A 0%, #B8A85A 50%, #9A8B40 100%);
     clip-path: polygon(0 0, 10% 0, 24% 100%, 0 100%);
 }
 
-.mv-bg-right {
-    right: 0;
-    background: linear-gradient(to bottom, #aee5fb 0%, #7fd1f3 30%, #5fb5df 65%, #2f87c0 100%);
+.mv-bg-blue-right {
+    left: 0;
+    background: linear-gradient(to bottom, #C4B55A 0%, #B8A85A 50%, #9A8B40 100%);
     clip-path: polygon(90% 0, 100% 0, 100% 100%, 76% 100%);
 }
 
@@ -132,8 +146,16 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    background: #1e5a8e;
-    color: #fff;
+    /* バッジ背景：黒＋チェック模様（お悩みBOX偶数行と同じ） */
+    background-color: #2a2a2a;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+    color: #ffffff;
     padding: clamp(0.7rem, 0.9vw, 0.875rem) clamp(1.1rem, 1.4vw, 1.375rem) clamp(0.7rem, 0.9vw, 0.875rem) clamp(0.7rem, 0.9vw, 0.875rem);
     border-radius: 999px;
     border: 3px solid #fff;
@@ -147,7 +169,8 @@ body {
     height: clamp(2.9rem, 3.8vw, 3.625rem);
     border-radius: 50%;
     background: #fff;
-    color: #1e5a8e;
+    /* アイコン枠もカーキ系に統一 */
+    color: #D3C466;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -178,7 +201,7 @@ body {
 
 .mv-lead-line1 {
     font-size: clamp(1.6rem, 3.5vw, 4.2rem);
-    color: #003d70;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     display: inline-block;
     margin-bottom: clamp(0.3rem, 0.8vh, 0.5rem);
@@ -190,7 +213,8 @@ body {
     content: "";
     display: block;
     height: 4px;
-    background: linear-gradient(to right, rgb(255, 140, 0), transparent);
+    /* 下線色を黒系に変更 */
+    background: linear-gradient(to right, #000000, transparent);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -199,7 +223,7 @@ body {
 
 .mv-lead-line2 {
     font-size: clamp(1.6rem, 3.5vw, 4.2rem);
-    color: #ff8c00;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     display: inline-block;
     white-space: nowrap;
@@ -211,7 +235,8 @@ body {
     content: "";
     display: block;
     height: 4px;
-    background: linear-gradient(to right, rgb(255, 140, 0), transparent);
+    /* 下線色を黒系に変更 */
+    background: linear-gradient(to right, #000000, transparent);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -221,7 +246,7 @@ body {
 .mv-lead-line3 {
     font-size: clamp(1rem, 2vw, 2.4rem);
     font-weight: 700;
-    color: #4fc3f7;
+    color: #ffffff;
     display: block;
     text-align: center;
     margin-top: clamp(0.5rem, 1.5vh, 1rem);
@@ -244,10 +269,11 @@ body {
 
 .feature-card-horizontal {
     position: relative;
-    background-color: #f36c21;
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+    /* オレンジ → カーキ系 #D3C466 に変更 */
+    background-color: #D3C466;
+    background-image: none;
     border: 2px solid #fff;
-    outline: 2px solid #f36c21;
+    outline: 2px solid #D3C466;
     border-radius: 12px;
     padding: clamp(0.9rem, 1.5vw, 1.1rem) clamp(1rem, 1.8vw, 1.3rem);
     display: flex;
@@ -282,7 +308,8 @@ body {
     height: 0;
     border-style: solid;
     border-width: 0 0 clamp(35px, 5vw, 50px) clamp(35px, 5vw, 50px);
-    border-color: transparent transparent rgba(255, 165, 90, 0.4) transparent;
+    /* 右下の三角形は少し薄めのカーキに変更 */
+    border-color: transparent transparent rgba(227, 213, 143, 0.7) transparent;
     z-index: 1;
 }
 
@@ -298,7 +325,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f36c21;
+    /* アイコン色もカーキ系に変更 */
+    color: #D3C466;
     font-size: clamp(1.3rem, 2.1vw, 1.8rem);
     flex-shrink: 0;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
@@ -343,7 +371,7 @@ body {
     width: clamp(400px, 45%, 860px);
     height: 100%;
     max-height: 85vh;
-    background-image: url('images/人物吹き出し2.png');
+    background-image: url('images/人物吹き出し白3.png');
     background-position: right bottom;
     background-size: contain;
     background-repeat: no-repeat;
@@ -388,13 +416,13 @@ body {
     gap: 8px;
 }
 
-/* スマホ用オレンジカード（縦並び） */
+/* スマホ用特徴カード（縦並び・PC版と同じカーキ色） */
 .feature-card {
     position: relative;
-    background-color: #f36c21;
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+    background-color: #D3C466;
+    background-image: none;
     border: 2px solid #fff;
-    outline: 2px solid #f36c21;
+    outline: 2px solid #D3C466;
     border-radius: 10px;
     padding: clamp(0.6rem, 1.2vw, 1rem);
     display: flex;
@@ -427,7 +455,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 0 0 clamp(25px, 4vw, 35px) clamp(25px, 4vw, 35px);
-    border-color: transparent transparent rgba(255, 165, 90, 0.4) transparent;
+    border-color: transparent transparent rgba(227, 213, 143, 0.7) transparent;
     z-index: 1;
 }
 
@@ -443,7 +471,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f36c21;
+    color: #D3C466;
     font-size: clamp(1.1rem, 1.8vw, 1.6rem);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
     z-index: 2;
@@ -617,7 +645,7 @@ body {
         font-size: clamp(1.6rem, 6.5vw, 2.5rem);
     }
     .section-mv2-mobile .mv-lead-line2 {
-        color: #ff8c00;
+        color: #ffffff;
         display: inline-block;
         text-align: center;
         margin: 0 auto;
@@ -625,7 +653,7 @@ body {
     }
     .section-mv2-mobile .mv-lead-line3 {
         font-size: clamp(0.95rem, 4vw, 1.6rem);
-        color: #4fc3f7;
+        color: #ffffff;
         margin-top: -0.9em;
         white-space: normal;
         transform: translateX(0);
@@ -664,13 +692,17 @@ body {
     width: 100%;
 }
 
-/* スマホ専用ファーストビュー（テスト用と同じ大枠） */
+/* スマホ専用ファーストビュー（背景画像＋両サイド濃いカーキ三角） */
 .section-mv2-mobile {
     display: none;
     position: relative;
     overflow: hidden;
     background-color: #fff;
-    padding-bottom: 10px; /* 背景の水色台形を少し下まで伸ばす */
+    background-image: url('images/背景緑6.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
 }
 .mv-mobile-inner {
     max-width: 480px;
@@ -828,7 +860,7 @@ body {
 .p-header-tel-num {
     font-size: 2.25rem;
     font-weight: bold;
-    color: #e60012;
+    color: #B8A85A;
     line-height: 1.2;
     overflow-wrap: break-word;
     word-break: break-all;
@@ -844,7 +876,7 @@ body {
 
 /* CVAセクション：見出し・サブ見出し */
 .cva-heading {
-    color: var(--primary-blue);
+    color: #B8A85A;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -905,7 +937,7 @@ body {
     font-weight: bold;
 }
 .cva-btn-orange {
-    background-color: var(--accent-orange);
+    background-color: #000000;
     color: #fff;
 }
 .cva-btn-green {
@@ -917,7 +949,7 @@ body {
     justify-content: center;
     gap: 2px;
     background: #fff;
-    border: 2px solid var(--primary-blue);
+    border: 2px solid #B8A85A;
 }
 .cva-btn-tel p {
     margin: 0;
@@ -931,7 +963,7 @@ body {
 .cva-btn-tel-num {
     font-size: 24px;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #B8A85A;
 }
 
 /* 中間CTA①：サブテキストを共感ブロックのリード文と同じサイズに、オレンジボタンは1行・大きめに */
@@ -945,6 +977,13 @@ body {
 }
 .cva-section-final.cva-section-light .cva-heading {
     font-size: 1.5rem;
+}
+/* 最終CTA：「空家のことで、」を黒、「これ以上ひとりで…」等オレンジ部分を濃いカーキに */
+.cva-section-final .cva-heading-black {
+    color: #000000 !important;
+}
+.cva-section-final .worry-lead-orange {
+    color: #B8A85A !important;
 }
 .cva-section-final.cva-section-light .cva-sub,
 .cva-section-final.cva-section-light .cva-sub-lg {
@@ -962,7 +1001,11 @@ body {
 }
 .cva-sub-lg {
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
+}
+/* 査定＝売却ではありません…：濃いカーキ */
+.cva-section-light .cva-sub-lg .text-orange-500 {
+    color: #B8A85A !important;
 }
 .cva-section-light .cva-sub-lg {
     font-size: 2rem;
@@ -1013,7 +1056,7 @@ body {
 .form-block-ttl {
     font-size: 1.125rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     margin: 0 0 1rem 0;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--primary-blue);
@@ -1084,7 +1127,14 @@ body {
     font-size: 1.25rem;
     font-weight: bold;
     color: #fff;
-    background-color: var(--accent-orange);
+    background-color: #2a2a2a;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -1122,7 +1172,7 @@ body {
     gap: 6px;
 }
 .form-badges li i {
-    color: var(--primary-blue);
+    color: #000000;
     font-size: 1rem;
 }
 
@@ -1137,7 +1187,7 @@ body {
     padding: 1.5rem 1.75rem;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(26, 45, 92, 0.08);
-    border-top: 3px solid var(--accent-orange);
+    border-top: 3px solid #B8A85A;
 }
 .section-contact__note-list {
     list-style: none;
@@ -1156,7 +1206,7 @@ body {
     color: #4b5563;
 }
 .section-contact__note-check {
-    color: var(--accent-orange);
+    color: #B8A85A;
     font-size: 0.875rem;
     flex-shrink: 0;
 }
@@ -1172,11 +1222,56 @@ body {
 
 /* ========== ② 共感・状況整理ブロック（はじめトラスト用・アニメーション付き） ========== */
 .section-worry {
-    background-color: var(--light-blue-bg);
+    background-color: #F2EFD5 !important;
 }
 /* お悩みセクション：上の薄い水色帯をなくす（青い見出しを直下に） */
 .section.section-worry {
     padding-top: 0 !important;
+}
+/* お悩みBOX：薄いカーキ背景（#D3C466より薄い） */
+.worry-box {
+    background-color: #E8E0B5 !important;
+    border-color: #D3C466 !important;
+}
+/* 薄い水色の項目（1,3,5行目）→ 薄いカーキ */
+.worry-box > div:nth-child(odd) {
+    background-color: #C4B55A !important;
+    border-bottom-color: rgba(211, 196, 102, 0.5) !important;
+}
+.worry-box > div:nth-child(odd):hover {
+    background-color: #B8A85A !important;
+}
+.worry-box > div:nth-child(odd) p {
+    color: #fff !important;
+}
+/* 濃い水色の項目（2,4,6行目）→ 濃い黒＋チェック模様 */
+.worry-box > div:nth-child(even) {
+    background-color: #2a2a2a !important;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%) !important;
+    background-size: 10px 10px !important;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px !important;
+    border-bottom-color: #1a1a1a !important;
+    color: #fff !important;
+}
+.worry-box > div:nth-child(even):hover {
+    background-color: #333 !important;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.08) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.08) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.08) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.08) 75%) !important;
+}
+.worry-box > div:nth-child(even) p {
+    color: #fff !important;
+}
+/* チェックボックス：青→カーキ */
+.worry-box svg {
+    color: #B8A85A !important;
+    border-color: #B8A85A !important;
 }
 /* お悩みBOX：チェックアイコン影 */
 .check-box-shadow {
@@ -1232,6 +1327,12 @@ body {
     font-weight: 700;
     color: var(--accent-orange);
 }
+/* お悩みセクション直下リード文のみ：オレンジ部分を黒背景＋濃いカーキ文字に */
+.section-worry .section-worry-lead-wrap .worry-lead-orange {
+    background-color: #000000;
+    color: #B8A85A !important;
+    padding: 0.15em 0.35em;
+}
 /* ファーストビュー直下リード文：白背景・上だけ余白ゼロ（ヒーローに密着） */
 .section-mv-lead-white {
     background-color: #fff;
@@ -1276,7 +1377,10 @@ body {
 .section-mv-lead .section-mv-lead-oneline {
     font-size: 1.75rem;
     line-height: 1.6;
-    color: var(--primary-blue);
+    color: #000000;
+}
+.section-mv-lead-marquee .worry-lead-orange {
+    color: #B8A85A;
 }
 /* 流れるリード文：同じ文章を2つ並べてシームレスにループさせる */
 .mv-lead-track {
@@ -1307,6 +1411,11 @@ body {
 .cva-sub .worry-lead-orange,
 .cva-sub-lg .worry-lead-orange {
     color: var(--accent-orange) !important;
+}
+/* 最終CTAのみ：オレンジ部分を濃いカーキに（上記より優先） */
+.cva-section-final.cva-section-light .cva-heading .worry-lead-orange,
+.cva-section-final.cva-section-light .cva-sub-lg .worry-lead-orange {
+    color: #B8A85A !important;
 }
 @media (min-width: 768px) {
     .section-worry-lead { font-size: 1.3125rem; }
@@ -1366,7 +1475,7 @@ body {
     margin: 0;
     font-size: 1rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     text-align: center;
     line-height: 1.4;
 }
@@ -1376,7 +1485,103 @@ body {
 
 /* 空き家を放置すると... セクション（参照ソース u-bg-akiya と同じ） */
 .section-akiya-risk {
-    background-color: var(--light-blue-bg);
+    background-color: #F2EFD5;
+}
+/* 空き家を放置すると…：見出し「負担だけが…」→黒背景＋濃いカーキ文字 */
+.section-akiya-risk .risk-h2-khaki {
+    color: #B8A85A;
+    background-color: #000000;
+    padding: 0.15em 0.35em;
+    margin-top: 0.35em;
+    display: inline-block;
+}
+/* リスクカード：白背景→黒チェック模様（お悩みBOX偶数行と同じ） */
+.section-akiya-risk .risk-card {
+    background-color: #2a2a2a !important;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%) !important;
+    background-size: 10px 10px !important;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px !important;
+}
+.section-akiya-risk .risk-card h3 {
+    color: #B8A85A !important;
+}
+.section-akiya-risk .risk-card p {
+    color: #fff !important;
+}
+/* カードアイコン：円→白、アイコン色→カーキ */
+.section-akiya-risk .risk-card .rounded-full.bg-blue-50 {
+    background-color: #ffffff !important;
+}
+.section-akiya-risk .risk-card .rounded-full .fa-solid {
+    color: #B8A85A !important;
+}
+/* カード番号バッジ（1,2,3）→濃いカーキ背景 */
+.section-akiya-risk .risk-number-badge {
+    background-color: #B8A85A !important;
+}
+/* 警告・提案エリアカード：黒チェック背景（リスクカードと同じ） */
+.section-akiya-risk .risk-warning-card {
+    background-color: #2a2a2a !important;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%) !important;
+    background-size: 10px 10px !important;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px !important;
+    border-color: #1a1a1a !important;
+}
+.section-akiya-risk .risk-warning-card > div:first-child p {
+    color: #fff !important;
+}
+/* 砂時計アイコン：白い円で囲む */
+.section-akiya-risk .risk-hourglass-wrap {
+    width: 6rem;
+    height: 6rem;
+    min-width: 6rem;
+    min-height: 6rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    box-sizing: border-box;
+}
+@media (min-width: 768px) {
+    .section-akiya-risk .risk-hourglass-wrap {
+        width: 7rem;
+        height: 7rem;
+        min-width: 7rem;
+        min-height: 7rem;
+    }
+}
+.section-akiya-risk .risk-hourglass-img {
+    width: 100%;
+    height: auto;
+    max-width: 4rem;
+    max-height: 4rem;
+    object-fit: contain;
+}
+@media (min-width: 768px) {
+    .section-akiya-risk .risk-hourglass-img {
+        max-width: 5rem;
+        max-height: 5rem;
+    }
+}
+/* 青背景部分→濃いカーキ */
+.section-akiya-risk .risk-warning-cta {
+    background-color: #B8A85A !important;
+}
+.section-akiya-risk .risk-warning-cta p {
+    color: #fff !important;
+}
+.section-akiya-risk .risk-warning-cta .text-orange-400 {
+    color: #000000 !important;
 }
 .risk-h2 img {
     max-width: 100%;
@@ -1508,13 +1713,13 @@ body {
     height: auto;
 }
 .omakase-h2-text {
-    color: var(--primary-blue);
+    color: #000000;
     font-size: 2.25rem;
     font-weight: bold;
     line-height: 1.4;
 }
 .omakase-h2-orange {
-    color: #e85c00;
+    color: #B8A85A;
     font-weight: bold;
 }
 @media (max-width: 767px) {
@@ -1635,7 +1840,7 @@ body {
     color: #333;
 }
 .omakase-ttl .text-akiya-blue {
-    color: var(--primary-blue);
+    color: #000000;
 }
 .omakase-desc {
     font-size: 1rem;
@@ -1653,6 +1858,19 @@ body {
 .section-omakase-block {
     background: #fff;
 }
+/* 空家の整理は「解体ありき」にしなくて大丈夫です：黒背景なし、全体黒文字、「解体ありき」のみ濃いカーキ */
+.section-omakase-block .text-center.mb-16.reveal h2 {
+    color: #000000 !important;
+    background: none !important;
+}
+.section-omakase-block .text-center.mb-16.reveal .omakase-h2-orange {
+    color: #B8A85A !important;
+    background: none !important;
+}
+/* 空家の整理方法：番号ラベル（1,2,3）→濃いカーキ */
+.section-omakase-block .number-label {
+    background-color: #B8A85A !important;
+}
 .section-omakase-block .omakase-block-h2 img {
     max-width: 100%;
     height: auto;
@@ -1663,7 +1881,7 @@ body {
 .omakase-block-h2-text {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     overflow: visible;
     max-height: none;
     white-space: normal;
@@ -1690,7 +1908,7 @@ body {
 .seiri-option-ttl {
     font-size: 1.125rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     margin-bottom: 0.5rem;
 }
 .seiri-option-txt {
@@ -1844,7 +2062,14 @@ body {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 .step-num {
-    background-color: var(--primary-blue);
+    background-color: #2a2a2a;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -1862,7 +2087,14 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #e8eef5;
+    background-color: #2a2a2a;
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.06) 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1876,12 +2108,12 @@ body {
 }
 .step-icon-fa {
     font-size: 3rem;
-    color: var(--primary-blue);
+    color: #B8A85A;
 }
 .step-ttl {
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     margin-top: 14px;
     margin-bottom: 8px;
 }
@@ -1906,12 +2138,12 @@ body {
 .step-tit-05 {
     font-size: 1.75rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     text-align: center;
     margin-bottom: 0;
 }
 .step-tit-05-orange {
-    color: #e85c00;
+    color: #B8A85A;
 }
 @media (min-width: 768px) {
     .step-tit-05 { font-size: 2rem; }
@@ -1991,7 +2223,7 @@ body {
 .voice-section-ttl {
     font-size: 1.75rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
 }
 @media (min-width: 768px) {
     .voice-section-ttl { font-size: 2rem; }
@@ -2017,7 +2249,7 @@ body {
 .u-padding-20 { padding: 20px; }
 .u-br-10 { border-radius: 10px; }
 .u-bg-white { background: #fff; }
-.u-color-akiya { color: var(--primary-blue); }
+.u-color-akiya { color: #000000; }
 .u-color-red { color: var(--accent-red); }
 
 @media (max-width: 767px) {
@@ -2068,7 +2300,7 @@ body {
 .voice-price-region {
     font-size: 1.125rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     line-height: 1.6;
 }
 /* お客様の声：買取価格・地域（2のデザイン：オレンジ価格・青地域バッジ・アイコン＋文章） */
@@ -2129,7 +2361,7 @@ body {
     min-width: 96px;
     border: 2px solid #b8d4e8;
     border-radius: 10px;
-    background-color: #f0f7ff;
+    background-color: #F2EFD5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2217,7 +2449,7 @@ body {
 
 /* ========== よくある質問セクション（モデルサイトと同じクラス） ========== */
 .p-tit-bg-akiya {
-    background-color: var(--primary-blue);
+    background-color: #B8A85A;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -2233,7 +2465,7 @@ body {
     transform: translateX(-50%);
     bottom: -20px;
     border: 20px solid transparent;
-    border-top-color: var(--primary-blue);
+    border-top-color: #B8A85A;
     width: 0;
     height: 0;
 }
@@ -2241,6 +2473,10 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+/* よくある質問：A. を濃いカーキに */
+.section-faq .u-color-red {
+    color: #B8A85A !important;
 }
 .p-faq-list li { list-style: none; }
 .p-faq-title {
@@ -2326,7 +2562,7 @@ body {
     line-height: 1.6;
 }
 .p-company-info-row dd a {
-    color: var(--primary-blue);
+    color: #000000;
     text-decoration: none;
 }
 .p-company-info-row dd a:hover {
@@ -2362,7 +2598,7 @@ body {
     height: 52px;
     min-width: 52px;
     min-height: 52px;
-    background-color: var(--primary-blue);
+    background-color: #000000;
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
@@ -2388,7 +2624,7 @@ body {
 .p-footer-logo-text {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: #000000;
     letter-spacing: 0.02em;
 }
 @media (max-width: 767px) {
@@ -2510,4 +2746,42 @@ footer.bg-akiya-blue {
     .p-sticky-footer .cva-btn-tel .cva-btn-tel-num {
         font-size: 14px;
     }
+}
+
+/* 中間CTA②以降：青文字を全て黒に */
+.cva-section-light-bg .text-blue-600,
+.cva-section-light-bg .text-blue-900,
+.section-omakase-block .text-blue-600,
+.section-omakase-block .text-blue-900,
+/* はじめトラストが空家で選ばれる理由：オレンジ部分→黒背景＋濃いカーキ */
+.section-why-buy .text-orange-500 {
+    color: #B8A85A !important;
+    background-color: #000000;
+    padding: 0.15em 0.35em;
+}
+.section-why-buy .worry-lead-orange {
+    color: #B8A85A !important;
+    background-color: #000000;
+    padding: 0.15em 0.35em;
+}
+/* 下部メッセージ（株式会社はじめトラストは…）：表示幅を広げて2行表示に */
+.section-why-buy {
+    max-width: 1280px !important;
+}
+.section-why-buy .section-worry-lead-wrap {
+    max-width: 1280px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.section-why-buy .text-blue-600,
+.section-why-buy .text-blue-900,
+.bg-akiya-blue .text-blue-600,
+.bg-akiya-blue .text-blue-900,
+.section-step .text-blue-600,
+.section-step .text-blue-900,
+.section-form .text-blue-600,
+.section-form .text-blue-900,
+.section-faq .text-blue-600,
+.section-faq .text-blue-900 {
+    color: #000000 !important;
 }
