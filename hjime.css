@@ -22,6 +22,7 @@
 }
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -103,14 +104,14 @@ body {
 
 .mv-bg-blue-left {
     left: 0;
-    background: linear-gradient(to bottom, #C4B55A 0%, #B8A85A 50%, #9A8B40 100%);
-    clip-path: polygon(0 0, 10% 0, 24% 100%, 0 100%);
+    background: linear-gradient(to bottom, #E8E0B5 0%, #D8CD70 50%, #D3C466 100%);
+    clip-path: polygon(0 0, 6% 0, 20% 100%, 0 100%);
 }
 
 .mv-bg-blue-right {
     left: 0;
-    background: linear-gradient(to bottom, #C4B55A 0%, #B8A85A 50%, #9A8B40 100%);
-    clip-path: polygon(90% 0, 100% 0, 100% 100%, 76% 100%);
+    background: linear-gradient(to bottom, #E8E0B5 0%, #D8CD70 50%, #D3C466 100%);
+    clip-path: polygon(94% 0, 100% 0, 100% 100%, 80% 100%);
 }
 
 /* 中央コンテンツ枠（テスト用と同じ） */
@@ -269,11 +270,11 @@ body {
 
 .feature-card-horizontal {
     position: relative;
-    /* オレンジ → カーキ系 #D3C466 に変更 */
-    background-color: #D3C466;
+    /* オレンジ → 濃いめのカーキ #C4B55A */
+    background-color: #C4B55A;
     background-image: none;
     border: 2px solid #fff;
-    outline: 2px solid #D3C466;
+    outline: 2px solid #C4B55A;
     border-radius: 12px;
     padding: clamp(0.9rem, 1.5vw, 1.1rem) clamp(1rem, 1.8vw, 1.3rem);
     display: flex;
@@ -308,8 +309,8 @@ body {
     height: 0;
     border-style: solid;
     border-width: 0 0 clamp(35px, 5vw, 50px) clamp(35px, 5vw, 50px);
-    /* 右下の三角形は少し薄めのカーキに変更 */
-    border-color: transparent transparent rgba(227, 213, 143, 0.7) transparent;
+    /* 右下の三角形は濃いめのカーキに */
+    border-color: transparent transparent rgba(196, 181, 90, 0.7) transparent;
     z-index: 1;
 }
 
@@ -325,8 +326,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* アイコン色もカーキ系に変更 */
-    color: #D3C466;
+    /* アイコン色も濃いめのカーキに */
+    color: #C4B55A;
     font-size: clamp(1.3rem, 2.1vw, 1.8rem);
     flex-shrink: 0;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
@@ -419,10 +420,10 @@ body {
 /* スマホ用特徴カード（縦並び・PC版と同じカーキ色） */
 .feature-card {
     position: relative;
-    background-color: #D3C466;
+    background-color: #C4B55A;
     background-image: none;
     border: 2px solid #fff;
-    outline: 2px solid #D3C466;
+    outline: 2px solid #C4B55A;
     border-radius: 10px;
     padding: clamp(0.6rem, 1.2vw, 1rem);
     display: flex;
@@ -455,7 +456,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 0 0 clamp(25px, 4vw, 35px) clamp(25px, 4vw, 35px);
-    border-color: transparent transparent rgba(227, 213, 143, 0.7) transparent;
+    border-color: transparent transparent rgba(196, 181, 90, 0.7) transparent;
     z-index: 1;
 }
 
@@ -471,7 +472,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D3C466;
+    color: #C4B55A;
     font-size: clamp(1.1rem, 1.8vw, 1.6rem);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
     z-index: 2;
@@ -1034,7 +1035,167 @@ body {
     }
 }
 
+/* ========== 代表メッセージ（手書き紙風） ========== */
+.section-message {
+    background-color: var(--light-blue-bg);
+}
+
+:root {
+    --letter-paper-bg: #faf9f6;
+    --letter-line-color: #e5e7eb;
+    --letter-ink-color: #2c3e50;
+    --letter-line-height: 2.5rem;
+}
+
+.letter-container {
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--letter-paper-bg);
+    /* 紙の質感：わずかなクリーム色＋微細なノイズ風グラデーション */
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.3) 0%, transparent 40%);
+    box-shadow:
+        /* 紙の浮き上がり：柔らかい主影 */
+        0 2px 4px rgba(0, 0, 0, 0.04),
+        0 4px 8px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(0, 0, 0, 0.06),
+        0 16px 32px rgba(0, 0, 0, 0.08),
+        /* 右下に強い落ち影（光が左上から） */
+        4px 4px 12px rgba(0, 0, 0, 0.08),
+        8px 8px 24px rgba(0, 0, 0, 0.06),
+        /* 紙の端の微細な影 */
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 80px 60px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 紙の微細な質感オーバーレイ */
+.letter-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.letter-logo-area {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.letter-logo-img {
+    display: inline-block;
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+}
+
+.letter-content {
+    position: relative;
+    z-index: 1;
+    line-height: var(--letter-line-height);
+    background-image: linear-gradient(transparent calc(var(--letter-line-height) - 1px), var(--letter-line-color) 1px);
+    background-size: 100% var(--letter-line-height);
+    background-attachment: local;
+    background-position: 0 0;
+    color: var(--letter-ink-color);
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    opacity: 0.97;
+    /* 手書きインクの滲み・筆圧表現 */
+    text-shadow: 0.2px 0.2px 0.4px rgba(44, 62, 80, 0.25);
+}
+
+.letter-text {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    text-align: left;
+    line-height: var(--letter-line-height);
+}
+
+.letter-text > * {
+    margin: 0;
+}
+
+.letter-text p {
+    min-height: var(--letter-line-height);
+    display: flex;
+    align-items: center;
+}
+
+.letter-spacer {
+    height: var(--letter-line-height);
+}
+
+.letter-list-style {
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    text-align: left;
+}
+
+.letter-list-style li {
+    list-style: none;
+    position: relative;
+    min-height: var(--letter-line-height);
+    display: flex;
+    align-items: center;
+    line-height: var(--letter-line-height);
+}
+
+.letter-list-style li::before {
+    content: "・";
+    position: absolute;
+    left: -1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.letter-signature {
+    margin-top: var(--letter-line-height);
+    text-align: right;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+}
+
+.letter-signature p {
+    margin: 0;
+    min-height: var(--letter-line-height);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    line-height: var(--letter-line-height);
+}
+
+.letter-name-large {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .letter-container {
+        padding: 40px 20px;
+    }
+    .letter-text {
+        font-size: 0.95rem;
+    }
+    :root {
+        --letter-line-height: 2.2rem;
+    }
+    .letter-logo-img {
+        max-width: 280px;
+    }
+}
+
 /* ========== 無料相談・査定フォーム ========== */
+.section-form {
+    background-color: #f5f7f9 !important;
+}
 .section-form .form-lead {
     font-size: 1.0625rem;
     margin: 0;
@@ -2474,6 +2635,11 @@ body {
     padding: 0;
     margin: 0;
 }
+/* よくあるご質問セクション：会社カードと同じ薄いグレー背景 */
+.section-faq {
+    background-color: #f5f7f9 !important;
+}
+
 /* よくある質問：A. を濃いカーキに */
 .section-faq .u-color-red {
     color: #B8A85A !important;
@@ -2521,7 +2687,7 @@ body {
 
 /* ========== 会社情報カード（フッター直上） ========== */
 .p-company-info {
-    background-color: #f5f7f9;
+    background-color: var(--light-blue-bg);
     padding: 40px 0 48px;
 }
 .p-company-info-card {
@@ -2675,6 +2841,7 @@ body { padding-bottom: 0; }
 footer.bg-akiya-blue {
     padding-bottom: 180px;
     margin-bottom: 0;
+    border-top: 1px solid #e5e7eb;
 }
 @media (min-width: 768px) {
     .p-sticky-footer { padding: 20px 24px 24px; }
